@@ -1,4 +1,4 @@
-## About Aplikasi PPDB ONLINE
+## About Aplikasi PPDB ONLINE (Development)
 
 Aplikasi PPDB ONLINE merupakan salah satu aplikasi berbasis web yang membantu pihak sekolah dalam melaksanakan Penerimaan Peserta Didik Baru (PPDB) secara daring. Aplikasi PPDB Online menghadirkan fitur-fitur yang memberikan kemudahan bagi pengguna baik admin (panitia) maupun calon siswa, di antaranya:
 
