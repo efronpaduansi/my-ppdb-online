@@ -78,8 +78,8 @@
                     <span class="nav-label">Riwayat Pendaftaran</span>
                 </a>
             </li>
-            <li class="{{ (request()->is('guest/pendaftaran/riwayat'))? 'active' : '' }}">
-                <a href="{{ route('guest.pendaftaran.riwayat') }}"><i class="sidebar-item-icon fa fa-edit"></i>
+            <li class="{{ (request()->is('guest/ujian'))? 'active' : '' }}">
+                <a href="{{ route('guest.ujian.index') }}"><i class="sidebar-item-icon fa fa-edit"></i>
                     <span class="nav-label">Ujian</span>
                 </a>
             </li>
@@ -93,11 +93,6 @@
             <li class="{{ (request()->is('siswa/home')) ? 'active' : ''}}">
                 <a href="{{ route('siswa.index') }}"><i class="sidebar-item-icon fa fa-th-large"></i>
                     <span class="nav-label">Dashboard</span>
-                </a>
-            </li>
-            <li class="{{ (request()->is('siswa/ujian')) ? 'active' : '' }}">
-                <a href="{{ route('ujian.index') }}"><i class="sidebar-item-icon bi bi-pencil-square"></i>
-                    <span class="nav-label">Ujian</span>
                 </a>
             </li>
             <li class="{{ (request()->is('informasi')) ? 'active' : '' }}">

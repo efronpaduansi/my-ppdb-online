@@ -14,8 +14,8 @@ use App\Http\Controllers\Admin\BankSoalController;
 use App\Http\Controllers\Admin\JurusanController;
 use App\Http\Controllers\Admin\PeriodeController;
 use App\Http\Controllers\Guest\PendaftaranController;
+use App\Http\Controllers\Guest\UjianController;
 use App\Http\Controllers\Siswa\PembayaranController;
-use App\Http\Controllers\Siswa\UjianController;
 
 
 Route::get('/', [PPDBController::class, 'index'])->name('ppdb.index');
@@ -105,13 +105,13 @@ Route::prefix('guest')->middleware(['auth', 'role:guest'])->group(function () {
     Route::post('/pendaftaran/berkas', [PendaftaranController::class, 'storeBerkas'])->name('guest.pendaftaran.berkas');
 
     Route::get('/pendaftaran/riwayat', [PendaftaranController::class, 'riwayatPendaftaran'])->name('guest.pendaftaran.riwayat');
+    Route::get('/ujian', [UjianController::class, 'index'])->name('guest.ujian.index');
 });
 
 // Route prefix for siswa
 Route::prefix('siswa')->middleware(['auth', 'role:siswa'])->group(function () {
     Route::get('/home', [HomeController::class, 'siswa'])->name('siswa.index');
     Route::get('/pembayaran', [PembayaranController::class, 'index'])->name('pembayaran.index');
-    Route::get('/ujian', [UjianController::class, 'index'])->name('ujian.index');
 });
 
 //Route for all users
