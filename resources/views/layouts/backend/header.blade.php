@@ -16,7 +16,8 @@
                 <a class="nav-link sidebar-toggler js-sidebar-toggler"><i class="ti-menu"></i></a>
             </li>
             <li>
-                <a href="{{ route('ppdb.index') }}" target="_blank" class="nav-link sidebar-toggler js-sidebar-toggler"><i class="bi bi-globe"></i></a>
+                <a href="{{ route('ppdb.index') }}" target="_blank" class="nav-link sidebar-toggler js-sidebar-toggler"><i
+                        class="bi bi-globe"></i></a>
             </li>
             {{-- <li>
                 <form class="navbar-search" action="javascript:;">
@@ -147,12 +148,20 @@
                     <img src="{{ asset('backend/img/admin-avatar.png') }}" />
                     <span></span>{{ Auth()->user()->name }}<i class="fa fa-angle-down m-l-5"></i></a>
                 <ul class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="{{ route('admin.profile.index') }}"><i class="fa fa-user"></i>Profile</a>
-                    @if (Auth::user()->role == 'admin') 
-                        <a class="dropdown-item" href="{{ route('website.setting.index') }}"><i class="fa fa-cog"></i>Settings</a>
+                    @if (Auth::user()->role == 'siswa')    
+                    <a class="dropdown-item" href="{{ route('siswa.profile.index') }}"><i
+                            class="fa fa-user"></i>Profile</a>
+                    @endif
+
+                    @if (Auth::user()->role == 'admin')
+                        <a class="dropdown-item" href="{{ route('admin.profile.index') }}"><i
+                                class="fa fa-user"></i>Profile</a>
+                        <a class="dropdown-item" href="{{ route('website.setting.index') }}"><i
+                                class="fa fa-cog"></i>Settings</a>
                     @endif
                     <li class="dropdown-divider"></li>
-                    <a class="dropdown-item" href="{{ route('auth.logout') }}" onclick="return confirm('Anda yakin untuk keluar?')"><i class="fa fa-power-off"></i>Logout</a>
+                    <a class="dropdown-item" href="{{ route('auth.logout') }}"
+                        onclick="return confirm('Anda yakin untuk keluar?')"><i class="fa fa-power-off"></i>Logout</a>
                 </ul>
             </li>
         </ul>
