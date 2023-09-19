@@ -1,21 +1,22 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PPDBController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PPDBController;
 use App\Http\Controllers\InformasiController;
-use App\Http\Controllers\Admin\DataPendaftaranController;
-use App\Http\Controllers\Admin\DataSiswaController;
 use App\Http\Controllers\Admin\StaffController;
-use App\Http\Controllers\Admin\WebsiteController;
-use App\Http\Controllers\Admin\ProfileController;
-use App\Http\Controllers\Admin\BankSoalController;
+use App\Http\Controllers\Guest\UjianController;
 use App\Http\Controllers\Admin\JurusanController;
 use App\Http\Controllers\Admin\PeriodeController;
-use App\Http\Controllers\Guest\PendaftaranController;
-use App\Http\Controllers\Guest\UjianController;
+use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\WebsiteController;
+use App\Http\Controllers\Admin\BankSoalController;
+use App\Http\Controllers\Admin\DataSiswaController;
 use App\Http\Controllers\Siswa\PembayaranController;
+use App\Http\Controllers\Guest\PendaftaranController;
+use App\Http\Controllers\Admin\DataPendaftaranController;
+use App\Http\Controllers\Siswa\ProfileController as ProfileSiswaController;
 
 
 Route::get('/', [PPDBController::class, 'index'])->name('ppdb.index');
@@ -112,6 +113,8 @@ Route::prefix('guest')->middleware(['auth', 'role:guest'])->group(function () {
 Route::prefix('siswa')->middleware(['auth', 'role:siswa'])->group(function () {
     Route::get('/home', [HomeController::class, 'siswa'])->name('siswa.index');
     Route::get('/pembayaran', [PembayaranController::class, 'index'])->name('pembayaran.index');
+    Route::get('/profile', [ProfileSiswaController::class, 'index'])->name('siswa.profile.index');
+    Route::post('/profile/change-pass', [ProfileSiswaController::class, 'changePassword'])->name('siswa.profile.change-pass');
 });
 
 //Route for all users

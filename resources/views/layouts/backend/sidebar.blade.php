@@ -116,6 +116,11 @@
                         <span class="nav-label">Informasi</span>
                     </a>
                 </li>
+                <li class="{{ request()->is('siswa/profile') ? 'active' : '' }}">
+                    <a href="{{ route('siswa.profile.index') }}"><i class="sidebar-item-icon bi bi-person"></i>
+                        <span class="nav-label">Informasi Akun</span>
+                    </a>
+                </li>
             @endif
         </ul>
     </div>
