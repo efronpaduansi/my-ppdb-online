@@ -1,17 +1,21 @@
 <?php
 
 namespace App\Http\Controllers;
+use Alert;
+use App\Models\Siswa;
+use App\Models\Website;
+use App\Models\Informasi;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use App\Models\Informasi;
-use App\Models\Website;
+
 class InformasiController extends Controller
 {
     public function index()
     {
         $web        = Website::get()->first();
-        $informasi = Informasi::all();
-        return view('backend.informasi', compact('informasi', 'web'));
+        // $informasi = Informasi::all();
+        $dataSiswa = Siswa::orderBy('nama_lengkap', 'asc')->get();
+        return view('backend.informasi', compact('web', 'dataSiswa'));
     }
 
     public function create()
