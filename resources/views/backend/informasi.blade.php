@@ -5,12 +5,12 @@
 @section('page-title', 'Informasi')
 
 @section('content')
-    <div class="tombol">
+    {{-- <div class="tombol">
         @if (Auth::user()->role == 'admin')
             <a href="{{ route('informasi.create') }}" class="btn btn-primary mb-5"><i class="bi bi-megaphone"></i> Tambah
                 Informasi</a>
         @endif
-    </div>
+    </div> --}}
     <div class="row">
         @if ($dataSiswa->isEmpty())
             <div class="col-12 d-flex justify-content-center">
