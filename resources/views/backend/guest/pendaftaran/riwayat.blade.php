@@ -98,6 +98,59 @@
                         <td class="text-left">{{ $dataSekolah->no_ijazah }}</td>
                     </tr>
                     <tr>
+                        <th>Pas Foto</th>
+                        <td class="text-left">
+                            <a href="" data-toggle="modal"
+                                data-target="#fotoModal{{ $berkas->id }}">{{ $berkas->foto }}</a>
+                            {{-- Foto Modal --}}
+                            <div class="modal fade" id="fotoModal{{ $berkas->id }}" tabindex="-1"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Pas Foto</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="{{ asset('uploads/berkas/foto/' . $berkas->foto) }}" alt="Pas Foto">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- End Foto Modal --}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Foto Copy Ijazah</th>
+                        <td>
+                            <a href="{{ url('uploads/berkas/ijazah/' . $berkas->ijazah) }}" target="_blank">Lihat</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Foto Copy SKHUN</th>
+                        <td>
+                            <a href="{{ url('uploads/berkas/skhun/' . $berkas->skhun) }}" target="_blank">Lihat</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Foto Copy Kartu Keluarga</th>
+                        <td>
+                            <a href="{{ url('uploads/berkas/kk/' . $berkas->kartu_keluarga) }}" target="_blank">Lihat</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Foto Copy Akta Kelahiran</th>
+                        <td>
+                            <a href="{{ url('uploads/berkas/akta/' . $berkas->akta_lahir) }}" target="_blank">Lihat</a>
+                        </td>
+                    </tr>
+                    <tr>
                         <th>Status Pendaftaran</th>
                         <td class="text-left">
                             @if ($pendaftaran->status_id == 1)
@@ -127,6 +180,6 @@
                 <strong>{{ $message }}</strong>
                 <button type="button" class="close" data-dismiss="alert">×</button>
             </div>
-        </div> 
+        </div>
     @endif
 @endsection

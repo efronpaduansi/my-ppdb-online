@@ -202,7 +202,8 @@ class PendaftaranController extends Controller
         $pendaftaran    = DataDiri::where('user_id', $user_id)->first();
         $dataOrangTua   = DataOrangTua::where('user_id', $user_id)->first();
         $dataSekolah    = DataSekolahAsal::where('user_id', $user_id)->first();
-        return view('backend.guest.pendaftaran.riwayat', compact('pendaftaran', 'dataOrangTua', 'dataSekolah', 'web'));
+        $berkas         = Berkas::where('user_id', $user_id)->first();
+        return view('backend.guest.pendaftaran.riwayat', compact('pendaftaran', 'dataOrangTua', 'dataSekolah', 'web', 'berkas'));
     }
 
 
