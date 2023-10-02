@@ -2,16 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Website;
+use App\Models\Siswa;
 use App\Models\Slider;
-use App\Models\Informasi;
 use App\Models\Jurusan;
+use App\Models\Periode;
+use App\Models\Website;
 /*
 * Update since 20/03/2023
 * Konfigurasi menu pendaftaran ketika periode pendaftaran sudah ditutup
 */
-use App\Models\Periode;
+use App\Models\Informasi;
+use Illuminate\Http\Request;
+
 class PPDBController extends Controller
 {
     public function index()
@@ -42,6 +44,7 @@ class PPDBController extends Controller
     {
         $web = Website::get()->first();
         $informasi = Informasi::where('status', 'aktif')->get();
-        return view('frontend.content.pengumuman', compact('informasi', 'web'));
+        $dataSiswa = Siswa::orderBy('nama_lengkap', 'asc')->get();
+        return view('frontend.content.pengumuman', compact('informasi', 'web', 'dataSiswa'));
     }
 }
