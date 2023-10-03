@@ -73,8 +73,10 @@ class DataPendaftaranController extends Controller
 
     public function destroy($id)
     {
-        $pendaftaran = DataDiri::find($id);
-        $pendaftaran->delete();
+        $deleteDataDiri = DataDiri::where('user_id', $id)->delete();
+        $deleteDataOrangTua = DataOrangTua::where('user_id', $id)->delete();
+        $deleteDataSekolahAsal = DataSekolahAsal::where('user_id', $id)->delete();
+        $deleteBerkas = Berkas::where('user_id', $id)->delete();
         return redirect()->route('admin.pendaftaran.index')->with('success', 'Data pendaftaran berhasil di hapus!');
     }
 }
