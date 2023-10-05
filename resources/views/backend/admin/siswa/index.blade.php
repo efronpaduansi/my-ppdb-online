@@ -8,9 +8,15 @@
     <div class="ibox">
         <div class="ibox-head flex">
             <div class="ibox-title">Data Siswa</div>
-            <a href="{{ route('admin.siswa.exportExcel') }}" class="btn btn-success"><i class="fa fa-file-excel-o"
-                    aria-hidden="true"></i>
-                Export Excel</a>
+            <div class="export-btn ml-auto">
+                <a href="{{ route('admin.siswa.exportExcel') }}" class="btn btn-success"><i class="fa fa-file-excel-o"
+                        aria-hidden="true"></i>
+                    Export Excel</a>
+
+                <a href="{{ route('admin.siswa.exportPDF') }}" class="btn btn-secondary"><i class="fa fa-file-pdf-o"
+                        aria-hidden="true"></i>
+                    Export PDF</a>
+            </div>
         </div>
         <div class="ibox-body">
             <table class="table table-striped table-bordered table-hover" id="example-table" cellspacing="0" width="100%">

@@ -69,6 +69,7 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
     // Data Siswa Routes
     Route::get('/data-siswa', [DataSiswaController::class, 'index'])->name('admin.siswa.index');
     Route::get('/data-siswa/export-excel', [DataSiswaController::class, 'exportExcel'])->name('admin.siswa.exportExcel');
+    Route::get('/data-siswa/export-pdf', [DataSiswaController::class, 'exportPDF'])->name('admin.siswa.exportPDF');
     Route::get('/show-data-siswa/{id}', [DataSiswaController::class, 'show'])->name('admin.siswa.show');
     Route::delete('data-siswa/{id}', [DataSiswaController::class, 'destroy'])->name('admin.siswa.destroy');
 

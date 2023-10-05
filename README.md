@@ -25,6 +25,7 @@ Saat ini sudah ditambahkan fitur sebagai berikut:
 1. Export data siswa ke excel
 2. Import soal dari excel
 3. Download format soal excel (Pastikan telah menambahkan minimal 1 pertanyaan yang ada di database)
+4. Export data siswa ke PDF (Bonus🚀)
 
 Fitur Excel menggunakan package laravel excel yang dibuat oleh maatwebsite. Untuk mendapatkan fitur ini silahkan jalankan perintah dibawah ini:
 

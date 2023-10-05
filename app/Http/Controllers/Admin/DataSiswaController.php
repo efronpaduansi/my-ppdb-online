@@ -9,7 +9,7 @@ use App\Exports\SiswaExport;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Maatwebsite\Excel\Facades\Excel;
-
+use PDF;
 class DataSiswaController extends Controller
 {
     public function index()
@@ -37,5 +37,14 @@ class DataSiswaController extends Controller
     public function exportExcel()
     {
         return Excel::download(new SiswaExport, 'data_siswa.xlsx');
+    }
+
+    //export data siswa to PDF file
+    public function exportPDF()
+    {
+        $siswas = Siswa::all();
+
+        $pdf = PDF::loadview('backend.admin.siswa.siswa_pdf', compact('siswas'));
+        return $pdf->download('data-siswa-pdf');
     }
 }
