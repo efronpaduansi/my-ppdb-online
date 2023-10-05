@@ -8,14 +8,51 @@
     <div class="ibox">
         <div class="ibox-head">
             <div class="ibox-title">Bank Soal</div>
-            <div class="ibox-title ml-auto">
+            <div class="ibox-title ml-auto flex">
                 <button class="btn btn-primary rounded" data-toggle="modal" data-target="#soalModal"><i
                         class="bi bi-plus-circle"></i> Tambah Soal</button>
+
+                <button class="btn btn-success rounded mx-2" data-toggle="modal" data-target="#importExcelModal"><i
+                        class="fa fa-file-excel-o" aria-hidden="true"></i>
+                    Import Excel</button>
+
+                <a href="{{ route('admin.bank-soal.downloadFormatExcel') }}" class="btn btn-success"><i
+                        class="fa fa-download" aria-hidden="true"></i>
+                    Unduh Format Excel</a>
+
+                {{-- Import Excel Modal --}}
+                <div class="modal fade" id="importExcelModal" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <form method="post" action="{{ route('admin.bank-soal.importExcel') }}"
+                            enctype="multipart/form-data">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Import Soal from Excel</h5>
+                                </div>
+                                <div class="modal-body">
+
+                                    {{ csrf_field() }}
+
+                                    <label>Pilih file excel</label>
+                                    <div class="form-group">
+                                        <input type="file" name="file" required="required">
+                                    </div>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Import</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="ibox-body">
-            <table class="table table-striped table-bordered table-hover table-responsive" id="example-table" cellspacing="0"
-                width="100%">
+            <table class="table table-striped table-bordered table-hover table-responsive" id="example-table"
+                cellspacing="0" width="100%">
                 <thead>
                     <tr>
                         <th>Aksi</th>
@@ -32,11 +69,15 @@
                     @foreach ($bankSoal as $soal)
                         <tr>
                             <td>
-                                <a href="{{ route('admin.bank-soal.edit', $soal->id) }}" class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i></a>
-                                <form action="{{ route('admin.bank-soal.destroy', $soal->id) }}" method="POST" class="d-inline">
+                                <a href="{{ route('admin.bank-soal.edit', $soal->id) }}" class="btn btn-warning btn-sm"><i
+                                        class="bi bi-pencil-square"></i></a>
+                                <form action="{{ route('admin.bank-soal.destroy', $soal->id) }}" method="POST"
+                                    class="d-inline">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Yakin menghapus data ini?')"><i class="bi bi-trash"></i></button>
+                                    <button type="submit" class="btn btn-danger btn-sm"
+                                        onclick="return confirm('Yakin menghapus data ini?')"><i
+                                            class="bi bi-trash"></i></button>
                                 </form>
                             </td>
                             <td>{{ $soal->number }}</td>
@@ -69,7 +110,8 @@
                         @method('POST')
                         <div class="form-group">
                             <label for="number">No. Soal</label>
-                            <input type="text" name="number" id="number" class="form-control" value="{{ $soalNumber }}" readonly>
+                            <input type="text" name="number" id="number" class="form-control"
+                                value="{{ $soalNumber }}" readonly>
                         </div>
                         <div class="form-group">
                             <label for="question">Pertanyaan <small class="text-danger">*</small></label>

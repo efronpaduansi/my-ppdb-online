@@ -58,7 +58,9 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
 
     //Bank Soal
     Route::get('bank-soal', [BankSoalController::class, 'index'])->name('admin.bank-soal');
+    Route::get('bank-soal/format-excel', [BankSoalController::class, 'downloadFormatExcel'])->name('admin.bank-soal.downloadFormatExcel');
     Route::post('bank-soal', [BankSoalController::class, 'store'])->name('admin.bank-soal.store');
+    Route::post('bank-soal/import-from-excel', [BankSoalController::class, 'importExcel'])->name('admin.bank-soal.importExcel');
     Route::get('bank-soal/{id}', [BankSoalController::class, 'edit'])->name('admin.bank-soal.edit');
     Route::put('bank-soal/{id}', [BankSoalController::class, 'update'])->name('admin.bank-soal.update');
     Route::delete('bank-soal/{id}', [BankSoalController::class, 'destroy'])->name('admin.bank-soal.destroy');

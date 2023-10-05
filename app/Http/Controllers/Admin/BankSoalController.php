@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\BankSoal;
+use Illuminate\Http\Request;
+use App\Imports\BankSoalImport;
+use App\Exports\FormatSoalExport;
+use App\Http\Controllers\Controller;
+use Maatwebsite\Excel\Facades\Excel;
 Use Alert;
 class BankSoalController extends Controller
 {
@@ -24,6 +27,12 @@ class BankSoalController extends Controller
         return view('backend.admin.banksoal.index', compact('soalNumber', 'bankSoal'));
     }
 
+    //Download format excel
+    public function downloadFormatExcel()
+    {
+        return Excel::download(new FormatSoalExport, 'format_bank_soal.xlsx');
+    }
+
     public function store(Request $request){
         $banksoal = new BankSoal();
         $banksoal->number = $request->number;
@@ -40,6 +49,30 @@ class BankSoalController extends Controller
             toast('Gagal menambahkan data!','error')->timerProgressBar();
             return redirect()->back();
         }
+    }
+
+    //store data from excel
+    public function importExcel(Request $request)
+    {
+        //Validate
+        $this->validate($request, [
+            'file' => 'required|mimes:csv,xls,xlsx'
+        ]);
+
+        // menangkap file excel
+		$file = $request->file('file');
+
+        // membuat nama file unik
+		$nama_file = rand().$file->getClientOriginalName();
+
+        // upload ke folder file_siswa di dalam folder public
+		$file->move('files_uploaded',$nama_file);
+
+        //import data
+        Excel::import(new BankSoalImport, public_path('/files_uploaded/' . $nama_file));
+
+        toast('Import Sukses!','success')->timerProgressBar();
+        return redirect()->back();
     }
 
     public function edit($id){
