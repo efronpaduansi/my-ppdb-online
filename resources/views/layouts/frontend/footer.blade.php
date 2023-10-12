@@ -45,32 +45,7 @@
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="footer-box">
                     <h3>Gallery</h3>
-                    <ul class="flickr-photos">
-                        <li>
-                            <a href="#"><img class="img-responsive" src="{{ asset('frontend/img/footer/1.jpg') }}"
-                                    alt="flickr"></a>
-                        </li>
-                        <li>
-                            <a href="#"><img class="img-responsive" src="{{ asset('frontend/img/footer/2.jpg') }}"
-                                    alt="flickr"></a>
-                        </li>
-                        <li>
-                            <a href="#"><img class="img-responsive"
-                                    src="{{ asset('frontend/img/footer/3.jpg') }}" alt="flickr"></a>
-                        </li>
-                        <li>
-                            <a href="#"><img class="img-responsive"
-                                    src="{{ asset('frontend/img/footer/4.jpg') }}" alt="flickr"></a>
-                        </li>
-                        <li>
-                            <a href="#"><img class="img-responsive"
-                                    src="{{ asset('frontend/img/footer/5.jpg') }}" alt="flickr"></a>
-                        </li>
-                        <li>
-                            <a href="#"><img class="img-responsive"
-                                    src="{{ asset('frontend/img/footer/6.jpg') }}" alt="flickr"></a>
-                        </li>
-                    </ul>
+                    @include('layouts.frontend.footer_gallery');
                 </div>
             </div>
         </div>
