@@ -22,6 +22,7 @@
         </div>
     </nav>
     <div class="tab-content" id="nav-tabContent">
+        {{-- Company Tab --}}
         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
             <div class="col-md-12">
                 <form action="{{ route('website.setting.company') }}" method="POST" enctype="multipart/form-data">
@@ -70,6 +71,8 @@
                 </form>
             </div>
         </div>
+
+        {{-- Slider Tab --}}
         <div class="tab-pane fade" id="nav-sliders" role="tabpanel" aria-labelledby="nav-sliders-tab">
             <div class="row">
                 <div class="col-md-8">
@@ -145,6 +148,8 @@
                 </div>
             </div>
         </div>
+
+        {{-- Contact Tab --}}
         <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
             <div class="row">
                 <div class="col-md-12">
@@ -154,43 +159,52 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="phonenumber">Telepon</label>
-                                <input type="text" class="form-control" id="phonenumber" name="phonenumber">
+                                <input type="text" class="form-control" id="phonenumber" name="phonenumber"
+                                    value="{{ $web->phonenumber }}">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="email">Email Address</label>
-                                <input type="email" class="form-control" id="email" name="email">
+                                <input type="email" class="form-control" id="email" name="email"
+                                    value="{{ $web->email }}">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="city">City</label>
-                                <input type="text" class="form-control" id="city" name="city">
+                                <input type="text" class="form-control" id="city" name="city"
+                                    value="{{ $web->city }}">
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="state">State</label>
-                                <input type="text" id="state" name="state" class="form-control">
+                                <input type="text" id="state" name="state" class="form-control"
+                                    value="{{ $web->state }}">
                             </div>
                             <div class="form-group col-md-2">
                                 <label for="zip">Zip</label>
-                                <input type="text" class="form-control" id="zip" name="zip">
+                                <input type="text" class="form-control" id="zip" name="zip"
+                                    value="{{ $web->zip }}">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-3">
                                 <label for="website">Website</label>
-                                <input type="text" class="form-control" id="website" name="website">
+                                <input type="text" class="form-control" id="website" name="website"
+                                    value="{{ $web->website }}">
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="facebook">Facebook</label>
-                                <input type="text" class="form-control" id="facebook" name="facebook">
+                                <input type="text" class="form-control" id="facebook" name="facebook"
+                                    value="{{ $web->facebook }}">
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="instagram">Instagram</label>
-                                <input type="text" class="form-control" id="instagram" name="instagram">
+                                <input type="text" class="form-control" id="instagram" name="instagram"
+                                    value="{{ $web->instagram }}">
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="linkedin">Linkedin</label>
-                                <input type="text" class="form-control" id="linkedin" name="linkedin">
+                                <input type="text" class="form-control" id="linkedin" name="linkedin"
+                                    value="{{ $web->linkedin }}">
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Simpan</button>
@@ -198,6 +212,8 @@
                 </div>
             </div>
         </div>
+
+        {{-- Gallery Tab --}}
         <div class="tab-pane fade" id="nav-gallery" role="tabpanel" aria-labelledby="nav-gallery-tab">
             <div class="row">
                 <div class="col-md-5">
@@ -233,6 +249,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 
     {{-- tampil pesan --}}

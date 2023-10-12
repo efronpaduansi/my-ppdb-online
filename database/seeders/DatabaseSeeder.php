@@ -51,9 +51,9 @@ class DatabaseSeeder extends Seeder
 
         // Seeder for default website setting
         Website::create([
-            'company_name' => 'Iconmedia',
+            'company_name' => 'PPDB ONLINE',
             'logo'         => 'ifiber-logo.png',
-            'address'      => 'Inkopad Blok. ABC',
+            'address'      => 'Jl. Permata No. 03 RT.01 RW.02, Kel. Contoh',
         ]);
     }
 }

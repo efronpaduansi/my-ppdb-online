@@ -45,7 +45,7 @@
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="footer-box">
                     <h3>Gallery</h3>
-                    @include('layouts.frontend.footer_gallery');
+                    @include('layouts.frontend.footer_gallery')
                 </div>
             </div>
         </div>
