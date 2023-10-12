@@ -34,19 +34,22 @@ class PPDBController extends Controller
     {
         $web = Website::get()->first();
         $jurusans = Jurusan::all();
-        return view('frontend.content.program_studi', compact('jurusans', 'web'));
+        $galleries = Gallery::latest()->get();
+        return view('frontend.content.program_studi', compact('jurusans', 'web', 'galleries'));
     }
 
     public function programStudiShow($slug)
     {
         $jurusan = Jurusan::where('slug', $slug)->first();
-        return view('frontend.content.program_studi_show', compact('jurusan'));
+        $galleries = Gallery::latest()->get();
+        return view('frontend.content.program_studi_show', compact('jurusan', 'galleries'));
     }
 
     public function alurPendaftaran()
     {
         $web = Website::get()->first();
-        return view('frontend.content.alur', compact('web'));
+        $galleries = Gallery::latest()->get();
+        return view('frontend.content.alur', compact('web', 'galleries'));
     }
 
     public function pengumuman()
@@ -54,6 +57,7 @@ class PPDBController extends Controller
         $web = Website::get()->first();
         $informasi = Informasi::where('status', 'aktif')->get();
         $dataSiswa = Siswa::orderBy('nama_lengkap', 'asc')->get();
-        return view('frontend.content.pengumuman', compact('informasi', 'web', 'dataSiswa'));
+        $galleries = Gallery::latest()->get();
+        return view('frontend.content.pengumuman', compact('informasi', 'web', 'dataSiswa', 'galleries'));
     }
 }
