@@ -21,6 +21,7 @@ use App\Http\Controllers\Siswa\ProfileController as ProfileSiswaController;
 
 Route::get('/', [PPDBController::class, 'index'])->name('ppdb.index');
 Route::get('/program-studi', [PPDBController::class, 'programStudi'])->name('ppdb.program.studi');
+Route::get('/program-studi/{slug}', [PPDBController::class, 'programStudiShow'])->name('ppdb.program.studi.show');
 Route::get('/alur-pendaftaran', [PPDBController::class, 'alurPendaftaran'])->name('ppdb.alur.pendaftaran');
 Route::get('/pengumuman', [PPDBController::class, 'pengumuman'])->name('ppdb.pengumuman');
 // End for frontend branch

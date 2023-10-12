@@ -34,6 +34,12 @@ class PPDBController extends Controller
         return view('frontend.content.program_studi', compact('jurusans', 'web'));
     }
 
+    public function programStudiShow($slug)
+    {
+        $jurusan = Jurusan::where('slug', $slug)->first();
+        return view('frontend.content.program_studi_show', compact('jurusan'));
+    }
+
     public function alurPendaftaran()
     {
         $web = Website::get()->first();
