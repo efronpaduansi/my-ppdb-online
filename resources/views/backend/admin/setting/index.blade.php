@@ -242,6 +242,13 @@
                                 <div class="card">
                                     <img src="{{ asset('uploads/frontend/' . $gallery->image_path) }}" alt="Gallery"
                                         height="120">
+                                    <div class="card-footer" id="card-footer">
+                                        <h5>
+                                            <a href="{{ route('website.gallery.destroy', $gallery->id) }}"
+                                                class="text-danger" onclick="return confirm('Yakin menghapus data?')"><i
+                                                    class="bi bi-trash-fill"></i></a>
+                                        </h5>
+                                    </div>
                                 </div>
                             </div>
                         @endforeach

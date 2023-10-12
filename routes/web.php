@@ -96,6 +96,7 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
     
     //Gallery
     Route::post('web-setting/gallery', [GalleryController::class, 'store'])->name('website.gallery.store');
+    Route::get('web-setting/gallery/{id}', [GalleryController::class, 'destroy'])->name('website.gallery.destroy');
 });
 // Route prefix for guest
 Route::prefix('guest')->middleware(['auth', 'role:guest'])->group(function () {

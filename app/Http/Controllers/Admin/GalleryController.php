@@ -29,4 +29,12 @@ class GalleryController extends Controller
 
         return redirect()->back()->with('success', 'Berhasil menambah data!');
     }
+
+    public function destroy($id)
+    {
+        $gallery = Gallery::find($id);
+        $gallery->delete();
+        return redirect()->back()->with('success', 'Perubahan berhasil di simpan!');
+    }
+
 }
