@@ -21,7 +21,7 @@ class CreateJurusansTable extends Migration
             $table->string('kode_jurusan');
             $table->string('nama_jurusan');
             $table->string('singkatan');
-            $table->string('deskripsi');
+            $table->text('deskripsi');
             $table->timestamps();
         });
     }
