@@ -13,8 +13,6 @@ class Slider extends Model
         'image',
         'title',
         'description',
-        'button_link',
-        'button_text',
         'is_active'
     ];
 }

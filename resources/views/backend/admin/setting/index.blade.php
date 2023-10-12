@@ -80,8 +80,6 @@
                                 <th>Image</th>
                                 <th>Title</th>
                                 <th>Desc</th>
-                                <th>Button Link</th>
-                                <th>Button Text</th>
                                 <th>Status</th>
                             </tr>
                         </thead>
@@ -108,8 +106,6 @@
                                             width="80"></td>
                                     <td>{{ $slider->title }}</td>
                                     <td>{{ $slider->description }}</td>
-                                    <td>{{ $slider->button_link }}</td>
-                                    <td>{{ $slider->button_text }}</td>
                                     <td>
                                         @if ($slider->is_active == 1)
                                             <span class="badge badge-success">Active</span>
@@ -139,14 +135,6 @@
                                 <div class="form-group">
                                     <label for="description">Description <small class="text-danger">*</small></label>
                                     <textarea name="description" id="description" cols="30" rows="4" class="form-control"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label for="button_link">Button Link <small class="text-danger">*</small></label>
-                                    <input type="text" id="button_link" name="button_link" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="button_text">Button Text <small class="text-danger">*</small></label>
-                                    <input type="text" id="button_text" name="button_text" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary">Simpan</button>

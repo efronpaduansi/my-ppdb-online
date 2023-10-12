@@ -64,8 +64,6 @@ class WebsiteController extends Controller
             'image'             => 'required|image|mimes:jpeg,png,jpg|max:1024',
             'title'             => 'required',
             'description'       =>  'required',
-            'button_link'       => 'required',
-            'button_text'       => 'required'
         ]);
 
         if($validated){
@@ -76,8 +74,6 @@ class WebsiteController extends Controller
             $slider->image          = $imgName;
             $slider->title          = $request->title;
             $slider->description    = $request->description;
-            $slider->button_link    = $request->button_link;
-            $slider->button_text    = $request->button_text;
             $slider->save();
             return redirect()->route('website.setting.index')->with('success', 'Perubahan berhasil di simpan!');
         }else{

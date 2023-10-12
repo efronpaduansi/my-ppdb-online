@@ -2,7 +2,8 @@
     <div class="bend niceties preview-1">
         <div id="ensign-nivoslider-3" class="slides" style="max-height: 550px; object-fit: cover;">
             @foreach ($sliders as $key => $slider)
-                <img src="{{asset('uploads/frontend/' .$slider->image)}}" alt="slider" title="#slider-direction-{{$key+1}}" style="max-height: 550px"/>
+                <img src="{{ asset('uploads/frontend/' . $slider->image) }}" alt="slider"
+                    title="#slider-direction-{{ $key + 1 }}" style="max-height: 550px" />
             @endforeach
             {{-- @foreach ($sliders as $key => $slider)
             <img src="{{ asset('frontend/img/slider/1.jpg') }}" alt="slider" title="#slider-direction-{{ $key+1 }}">
@@ -10,14 +11,14 @@
             @endforeach --}}
         </div>
         @foreach ($sliders as $key => $slider)
-            <div id="slider-direction-{{$key+1}}" class="t-cn slider-direction">
-                <div class="slider-content s-tb slide-{{$key+1}}">
+            <div id="slider-direction-{{ $key + 1 }}" class="t-cn slider-direction">
+                <div class="slider-content s-tb slide-{{ $key + 1 }}">
                     <div class="title-container s-tb-c">
                         <div class="title1">{{ $slider->title }}</div>
                         <p>{{ $slider->description }}</p>
-                        <div class="slider-btn-area">
+                        {{-- <div class="slider-btn-area">
                             <a href="{{ $slider->button_link }}" target="_blank" class="default-big-btn">{{ $slider->button_text }}</a>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
