@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\Slider;
+use App\Models\Gallery;
+use App\Models\Website;
 use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
-use App\Models\Website;
-use App\Models\Slider;
+use App\Http\Controllers\Controller;
 
 class WebsiteController extends Controller
 {
@@ -14,7 +15,9 @@ class WebsiteController extends Controller
     {
         $sliders = Slider::get();
         $web = Website::get()->first();
-        return view('backend.admin.setting.index', compact('web', 'sliders'));
+        $galleries = Gallery::latest()->get();
+
+        return view('backend.admin.setting.index', compact('web', 'sliders', 'galleries'));
     }
 
     public function company(Request $request, $id = 1)

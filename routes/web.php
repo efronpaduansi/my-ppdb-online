@@ -7,6 +7,7 @@ use App\Http\Controllers\PPDBController;
 use App\Http\Controllers\InformasiController;
 use App\Http\Controllers\Admin\StaffController;
 use App\Http\Controllers\Guest\UjianController;
+use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\JurusanController;
 use App\Http\Controllers\Admin\PeriodeController;
 use App\Http\Controllers\Admin\ProfileController;
@@ -93,6 +94,8 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
     Route::put('web-setting-sliders/{id}', [WebsiteController::class, 'sliderDisable'])->name('website.sliders.disable');
     Route::delete('web-setting-sliders/{id}', [WebsiteController::class, 'sliderDestroy'])->name('website.sliders.destroy');
     
+    //Gallery
+    Route::post('web-setting/gallery', [GalleryController::class, 'store'])->name('website.gallery.store');
 });
 // Route prefix for guest
 Route::prefix('guest')->middleware(['auth', 'role:guest'])->group(function () {

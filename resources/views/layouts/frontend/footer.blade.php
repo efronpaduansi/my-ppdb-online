@@ -4,16 +4,20 @@
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="footer-box">
                     <a href="/">
-                       PPDB ONLINE
+                        PPDB ONLINE
                     </a>
                     <div class="footer-about">
-                        <p> {{@$footer->desc}} </p>
+                        <p> {{ @$footer->desc }} </p>
                     </div>
                     <ul class="footer-social">
-                        <li><a href="{{'https://www.linkedin.com/in',@$footer->linkedln}}" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                        <li><a href="{{'https://www.twitter.com/',@$footer->twitter}}" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                        <li><a href="{{'https://www.facebook.com/',@$footer->facebook}}" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                        <li><a href="{{'https://www.instagram.com/',@$footer->instagram}}" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                        <li><a href="{{ 'https://www.linkedin.com/in', @$footer->linkedln }}" target="_blank"><i
+                                    class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                        <li><a href="{{ 'https://www.twitter.com/', @$footer->twitter }}" target="_blank"><i
+                                    class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="{{ 'https://www.facebook.com/', @$footer->facebook }}" target="_blank"><i
+                                    class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="{{ 'https://www.instagram.com/', @$footer->instagram }}" target="_blank"><i
+                                    class="fa fa-instagram" aria-hidden="true"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -21,8 +25,9 @@
                 <div class="footer-box">
                     <h3>Informasi</h3>
                     <ul class="corporate-address">
-                        <li><i class="fa fa-phone" aria-hidden="true"></i><a href="tel:{{@$footer->telp}}"> {{@$footer->telp}}</a></li>
-                        <li><i class="fa fa-envelope-o" aria-hidden="true"></i>{{@$footer->email}}</li>
+                        <li><i class="fa fa-phone" aria-hidden="true"></i><a href="tel:{{ @$footer->telp }}">
+                                {{ @$footer->telp }}</a></li>
+                        <li><i class="fa fa-envelope-o" aria-hidden="true"></i>{{ @$footer->email }}</li>
                     </ul>
                     <div class="newsletter-area">
                         <h3>Ingin mendapat berita terupdate ?</h3>
@@ -31,7 +36,7 @@
                             <span class="input-group-addon">
                                 <button type="submit">
                                     <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                                </button>  
+                                </button>
                             </span>
                         </div>
                     </div>
@@ -39,25 +44,31 @@
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="footer-box">
-                    <h3>Photos</h3>
+                    <h3>Gallery</h3>
                     <ul class="flickr-photos">
                         <li>
-                            <a href="#"><img class="img-responsive" src="{{asset('frontend/img/footer/1.jpg')}}" alt="flickr"></a>
+                            <a href="#"><img class="img-responsive" src="{{ asset('frontend/img/footer/1.jpg') }}"
+                                    alt="flickr"></a>
                         </li>
                         <li>
-                            <a href="#"><img class="img-responsive" src="{{asset('frontend/img/footer/2.jpg')}}" alt="flickr"></a>
+                            <a href="#"><img class="img-responsive" src="{{ asset('frontend/img/footer/2.jpg') }}"
+                                    alt="flickr"></a>
                         </li>
                         <li>
-                            <a href="#"><img class="img-responsive" src="{{asset('frontend/img/footer/3.jpg')}}" alt="flickr"></a>
+                            <a href="#"><img class="img-responsive"
+                                    src="{{ asset('frontend/img/footer/3.jpg') }}" alt="flickr"></a>
                         </li>
                         <li>
-                            <a href="#"><img class="img-responsive" src="{{asset('frontend/img/footer/4.jpg')}}" alt="flickr"></a>
+                            <a href="#"><img class="img-responsive"
+                                    src="{{ asset('frontend/img/footer/4.jpg') }}" alt="flickr"></a>
                         </li>
                         <li>
-                            <a href="#"><img class="img-responsive" src="{{asset('frontend/img/footer/5.jpg')}}" alt="flickr"></a>
+                            <a href="#"><img class="img-responsive"
+                                    src="{{ asset('frontend/img/footer/5.jpg') }}" alt="flickr"></a>
                         </li>
                         <li>
-                            <a href="#"><img class="img-responsive" src="{{asset('frontend/img/footer/6.jpg')}}" alt="flickr"></a>
+                            <a href="#"><img class="img-responsive"
+                                    src="{{ asset('frontend/img/footer/6.jpg') }}" alt="flickr"></a>
                         </li>
                     </ul>
                 </div>
@@ -69,7 +80,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                <p>&copy; {{date('Y')}} <a href="">PPDB Online</a></p>
+                <p>&copy; {{ date('Y') }} <a href="">PPDB Online</a></p>
             </div>
         </div>
     </div>
