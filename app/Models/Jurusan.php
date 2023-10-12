@@ -15,6 +15,7 @@ class Jurusan extends Model
         'thumbnail',
         'kode_jurusan',
         'nama_jurusan',
+        'slug',
         'singkatan',
         'deskripsi',
     ];

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Models\Jurusan;
 use App\Models\Website;
 /*
@@ -31,6 +32,7 @@ class JurusanController extends Controller
             $jurusan->thumbnail     = $imgName;
             $jurusan->kode_jurusan  = "JUR-".rand(1000, 9999);
             $jurusan->nama_jurusan  = htmlspecialchars(strip_tags($request->nama_jurusan));
+            $jurusan->slug          = Str::slug(strip_tags($request->nama_jurusan));
             $jurusan->singkatan     = htmlspecialchars($request->singkatan);
             $jurusan->deskripsi     = htmlspecialchars($request->deskripsi);
             $success = $jurusan->save();
@@ -59,6 +61,7 @@ class JurusanController extends Controller
         if($validatedData){
             $jurusan                = Jurusan::find($id);
             $jurusan->nama_jurusan  = htmlspecialchars($request->nama_jurusan);
+            $jurusan->slug          = Str::slug(strip_tags($request->nama_jurusan));
             $jurusan->singkatan     = htmlspecialchars($request->singkatan);
             $jurusan->deskripsi     = htmlspecialchars($request->deskripsi);
             $jurusan->update();
