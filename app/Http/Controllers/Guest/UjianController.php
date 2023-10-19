@@ -12,7 +12,7 @@ class UjianController extends Controller
 
     public function index()
     {
-        $soals = BankSoal::orderBy('number', 'asc')->get();
+        $soals = BankSoal::inRandomOrder()->get();
         return view('backend.guest.ujian.index', compact('soals'));
     }
 }
