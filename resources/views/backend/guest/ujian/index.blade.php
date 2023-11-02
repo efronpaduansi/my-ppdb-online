@@ -15,20 +15,20 @@
                 <div class="ibox-body">
                     <ul>
                         <li>
-                            <input type="radio" name="soal_{{ $soal->id }}" id="{{ $soal->id }}"
-                                value="{{ $soal->option_a }}"> {{ $soal->option_a }}
+                            <input type="radio" name="soal_{{ $soal->id }}" id="{{ $soal->id }}" value="A">
+                            {{ $soal->option_a }}
                         </li>
                         <li>
-                            <input type="radio" name="soal_{{ $soal->id }}" id="{{ $soal->id }}"
-                                value="{{ $soal->option_b }}"> {{ $soal->option_b }}
+                            <input type="radio" name="soal_{{ $soal->id }}" id="{{ $soal->id }}" value="B">
+                            {{ $soal->option_b }}
                         </li>
                         <li>
-                            <input type="radio" name="soal_{{ $soal->id }}" id="{{ $soal->id }}"
-                                value="{{ $soal->option_c }}"> {{ $soal->option_c }}
+                            <input type="radio" name="soal_{{ $soal->id }}" id="{{ $soal->id }}" value="C">
+                            {{ $soal->option_c }}
                         </li>
                         <li>
-                            <input type="radio" name="soal_{{ $soal->id }}" id="{{ $soal->id }}"
-                                value="{{ $soal->option_d }}"> {{ $soal->option_d }}
+                            <input type="radio" name="soal_{{ $soal->id }}" id="{{ $soal->id }}" value="D">
+                            {{ $soal->option_d }}
                         </li>
                     </ul>
                 </div>
