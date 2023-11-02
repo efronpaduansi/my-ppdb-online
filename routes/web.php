@@ -116,6 +116,7 @@ Route::prefix('guest')->middleware(['auth', 'role:guest'])->group(function () {
 
     Route::get('/pendaftaran/riwayat', [PendaftaranController::class, 'riwayatPendaftaran'])->name('guest.pendaftaran.riwayat');
     Route::get('/ujian', [UjianController::class, 'index'])->name('guest.ujian.index');
+    Route::post('/ujian', [UjianController::class, 'store'])->name('guest.ujian.store');
 });
 
 // Route prefix for siswa

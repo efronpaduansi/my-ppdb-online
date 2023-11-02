@@ -18,7 +18,6 @@ class AuthController extends Controller
 {
     public function login()
     {
-        
         $periode = Periode::orderBy('id', 'desc')->first();
         if ($periode == null) {
             return view('auth.login');

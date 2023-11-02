@@ -12,8 +12,6 @@ class UjianController extends Controller
 
     public function index()
     {
-        // $soals = BankSoal::inRandomOrder()->get();
-
         if (session()->has('soals')) {
             $soals = session('soals');
         } else {
@@ -22,5 +20,19 @@ class UjianController extends Controller
         }
 
         return view('backend.guest.ujian.index', compact('soals'));
+    }
+
+    public function store(Request $request)
+    {
+        $jawaban = [];
+
+        foreach($request->all() as $key => $value){
+            if (strpos($key, 'soal_') === 0) {
+                $soalId = substr($key, 1); 
+                $jawaban[$soalId] = $value; 
+            }
+        }
+
+        dd($jawaban);
     }
 }
