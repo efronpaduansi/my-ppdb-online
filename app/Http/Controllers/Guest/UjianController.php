@@ -7,6 +7,7 @@ use  App\Models\BankSoal;
 use App\Models\JawabanSoal;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Alert;
 
 class UjianController extends Controller
 {
@@ -18,6 +19,14 @@ class UjianController extends Controller
         } else {
             $soals = BankSoal::inRandomOrder()->get();
             session(['soals' => $soals]);
+        }
+
+
+        $userId = auth()->user()->id;
+        $getUserId = JawabanSoal::where('user_id', $userId)->first();
+
+        if($getUserId){
+            return view('backend.guest.ujian.confirm');
         }
 
         return view('backend.guest.ujian.index', compact('soals'));
@@ -33,8 +42,6 @@ class UjianController extends Controller
                 $jawaban[$soalId] = $value; 
             }
         }
-
-        // dd($jawaban);
         
         //Store jawaban soal
         foreach ($jawaban as $soalId => $nilai) {
@@ -57,5 +64,8 @@ class UjianController extends Controller
 
             $storeJawaban = JawabanSoal::create($data);
         }
+
+        toast('Terima kasih! Jawaban Anda telah direkam.','success')->timerProgressBar();
+        return view('backend.guest.ujian.confirm');
     }
 }
