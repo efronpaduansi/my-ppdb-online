@@ -22,21 +22,6 @@ class DatabaseSeeder extends Seeder
             'role' => 'admin',
         ]);
 
-        User::create([
-            'name' => 'Siswa',
-            'email' => 'siswa@gmail.com',
-            'password' => bcrypt('password'),
-            'role' => 'siswa',
-        ]);
-
-        User::create([
-            'name' => 'Calon Siswa',
-            'email' => 'calonsiswa@gmail.com',
-            'password' => bcrypt('password'),
-            'role' => 'guest',
-        ]);
-
-     
         StatusPendaftaran::create([
             'status' => 'Menunggu Diverifikasi',
         ]);

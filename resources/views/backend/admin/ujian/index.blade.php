@@ -16,7 +16,6 @@
                         <th>#</th>
                         <th>Nama Calon Siswa</th>
                         <th>Tgl Ujian</th>
-                        <th>Status</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -24,6 +23,11 @@
                     @foreach ($data as $item)
                         <tr>
                             <th>{{ $loop->iteration }}</th>
+                            <td>{{ $item->name }}</td>
+                            <td>{{ date('d/m/Y', strtotime($item['jawaban'][0]['created_at'])) }}</td>
+                            <td>
+                                <a href="" class="btn btn-sm btn-primary">Lihat Jawaban</a>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

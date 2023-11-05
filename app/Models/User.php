@@ -52,7 +52,7 @@ class User extends Authenticatable
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function jawaban(): HasMany
+    public function jawaban()
     {
         return $this->hasMany(JawabanSoal::class, 'user_id', 'id');
     }
