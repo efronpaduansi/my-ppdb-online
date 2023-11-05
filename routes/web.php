@@ -71,6 +71,7 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
 
     //Hasil Ujian
     Route::get('ujian', [HasilUjianController::class, 'index'])->name('admin.ujian');
+    Route::get('ujian/{id}', [HasilUjianController::class, 'show'])->name('admin.ujian.show');
     
 
     // Data Siswa Routes

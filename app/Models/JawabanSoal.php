@@ -30,7 +30,7 @@ class JawabanSoal extends Model
     protected $fillable = ['soal_id', 'user_id', 'answer', 'status'];
 
     
-    public function soal(): BelongsTo
+    public function soal()
     {
         return $this->belongsTo(BankSoal::class, 'soal_id', 'id');
     }
@@ -40,7 +40,7 @@ class JawabanSoal extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function user(): BelongsTo
+    public function user()
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }

@@ -20,13 +20,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($data as $item)
+                    @foreach ($data as $user)
                         <tr>
                             <th>{{ $loop->iteration }}</th>
-                            <td>{{ $item->name }}</td>
-                            <td>{{ date('d/m/Y', strtotime($item['jawaban'][0]['created_at'])) }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ date('d/m/Y', strtotime($user['jawaban'][0]['created_at'])) }}</td>
                             <td>
-                                <a href="" class="btn btn-sm btn-primary">Lihat Jawaban</a>
+                                <a href="{{ route('admin.ujian.show', $user->id) }}" class="btn btn-sm btn-primary">Lihat
+                                    Hasil</a>
                             </td>
                         </tr>
                     @endforeach
