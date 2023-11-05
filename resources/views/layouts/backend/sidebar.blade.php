@@ -42,6 +42,11 @@
                         <span class="nav-label">Bank Soal</span>
                     </a>
                 </li>
+                <li class="{{ request()->is('admin/ujian') ? 'active' : '' }}">
+                    <a href="{{ route('admin.ujian') }}"><i class="sidebar-item-icon bi bi-pen fill"></i>
+                        <span class="nav-label">Hasil Seleksi</span>
+                    </a>
+                </li>
                 <li class="{{ request()->is('admin/data-siswa') ? 'active' : '' }}">
                     <a href="{{ route('admin.siswa.index') }}"><i class="sidebar-item-icon bi bi-mortarboard-fill"></i>
                         <span class="nav-label">Data Siswa</span>

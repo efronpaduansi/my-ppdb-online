@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\User;
 use App\Models\BankSoal;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -32,5 +33,15 @@ class JawabanSoal extends Model
     public function soal(): BelongsTo
     {
         return $this->belongsTo(BankSoal::class, 'soal_id', 'id');
+    }
+
+    /**
+     * Get the user that owns the JawabanSoal
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 }

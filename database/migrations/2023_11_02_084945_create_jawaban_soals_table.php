@@ -16,13 +16,17 @@ class CreateJawabanSoalsTable extends Migration
         Schema::create('jawaban_soal', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('soal_id');
-            $table->integer('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->string('answer');
             $table->enum('status', ['benar', 'salah']);
             $table->timestamps();
 
             //relation
             $table->foreign('soal_id')->references('id')->on('bank_soal')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+
+            $table->foreign('user_id')->references('id')->on('users')
             ->onUpdate('cascade')
             ->onDelete('cascade');
         });

@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\WebsiteController;
 use App\Http\Controllers\Admin\BankSoalController;
 use App\Http\Controllers\Admin\DataSiswaController;
+use App\Http\Controllers\Admin\HasilUjianController;
 use App\Http\Controllers\Siswa\PembayaranController;
 use App\Http\Controllers\Guest\PendaftaranController;
 use App\Http\Controllers\Admin\DataPendaftaranController;
@@ -66,6 +67,10 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
     Route::get('bank-soal/{id}', [BankSoalController::class, 'edit'])->name('admin.bank-soal.edit');
     Route::put('bank-soal/{id}', [BankSoalController::class, 'update'])->name('admin.bank-soal.update');
     Route::delete('bank-soal/{id}', [BankSoalController::class, 'destroy'])->name('admin.bank-soal.destroy');
+    
+
+    //Hasil Ujian
+    Route::get('ujian', [HasilUjianController::class, 'index'])->name('admin.ujian');
     
 
     // Data Siswa Routes
