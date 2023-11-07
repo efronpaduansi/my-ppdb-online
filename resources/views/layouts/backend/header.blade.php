@@ -6,7 +6,8 @@
             </span>
             <span class="brand-mini">IM</span> --}}
             {{-- <span>{{ $web->company_name }}</span> --}}
-            <span>PPDB Online</span>
+            {{-- <span>PPDB Online</span> --}}
+            <span>Yayasan GTC</span>
         </a>
     </div>
     <div class="flexbox flex-1">
@@ -148,9 +149,9 @@
                     <img src="{{ asset('backend/img/admin-avatar.png') }}" />
                     <span></span>{{ Auth()->user()->name }}<i class="fa fa-angle-down m-l-5"></i></a>
                 <ul class="dropdown-menu dropdown-menu-right">
-                    @if (Auth::user()->role == 'siswa')    
-                    <a class="dropdown-item" href="{{ route('siswa.profile.index') }}"><i
-                            class="fa fa-user"></i>Profile</a>
+                    @if (Auth::user()->role == 'siswa')
+                        <a class="dropdown-item" href="{{ route('siswa.profile.index') }}"><i
+                                class="fa fa-user"></i>Profile</a>
                     @endif
 
                     @if (Auth::user()->role == 'admin')
