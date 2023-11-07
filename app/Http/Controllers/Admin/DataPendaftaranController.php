@@ -15,14 +15,17 @@ class DataPendaftaranController extends Controller
 {
     public function index()
     {
-        $web        = Website::get()->first();
-        $pendaftaran = DataDiri::all();
+        $web            = Website::get()->first();
+        // $pendaftaran    = DataDiri::all();
+        $pendaftaran = User::with('dataDiri', 'jawaban')
+                        ->where('role', 'guest')
+                        ->get();
         return view('backend.admin.pendaftaran.index', compact('pendaftaran', 'web'));
     }
 
     public function show($user_id)
     {
-        $web        = Website::get()->first();
+        $web            = Website::get()->first();
         $pendaftaran    = DataDiri::where('user_id', $user_id)->first();
         $dataOrangTua   = DataOrangTua::where('user_id', $user_id)->first();
         $dataSekolah    = DataSekolahAsal::where('user_id', $user_id)->first();

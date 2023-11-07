@@ -21,7 +21,7 @@
                         <th>NISN</th>
                         <th>TTL</th>
                         <th>Jenis Kelamin</th>
-                        <th>Agama</th>
+                        <th>Nilai Ujian</th>
                         <th>Status</th>
                     </tr>
                 </thead>
@@ -29,12 +29,12 @@
                     @foreach ($pendaftaran as $item)
                         <tr>
                             <td class="d-flex inline">
-                                <a href="{{ route('admin.pendaftaran.show', $item->user->id) }}"
+                                <a href="{{ route('admin.pendaftaran.show', $item->id) }}"
                                     class="btn btn-sm btn-primary mr-2">
                                     <i class="fa fa-eye"></i>
                                 </a>
                                 {{-- Tombol hapus --}}
-                                <form action="{{ route('admin.pendaftaran.destroy', $item->user->id) }}" method="POST"
+                                <form action="{{ route('admin.pendaftaran.destroy', $item->id) }}" method="POST"
                                     class="d-inline">
                                     @csrf
                                     @method('delete')
@@ -44,25 +44,25 @@
                                     </button>
                                 </form>
                             </td>
-                            <td>{{ $item->no_pendaftaran }}</td>
-                            <td>{{ $item->nama_lengkap }}</td>
-                            <td>{{ $item->nik }}</td>
-                            <td>{{ $item->nisn }}</td>
-                            <td>{{ $item->tempat_lahir }}, {{ $item->tanggal_lahir }}</td>
-                            <td>{{ $item->jenis_kelamin }}</td>
-                            <td>{{ $item->agama }}</td>
+                            <td>{{ $item->dataDiri->no_pendaftaran }}</td>
+                            <td>{{ $item->dataDiri->nama_lengkap }}</td>
+                            <td>{{ $item->dataDiri->nik }}</td>
+                            <td>{{ $item->dataDiri->nisn }}</td>
+                            <td>{{ $item->dataDiri->tempat_lahir }}, {{ $item->dataDiri->tanggal_lahir }}</td>
+                            <td>{{ $item->dataDiri->jenis_kelamin }}</td>
+                            <td>{{ number_format($item->dataDiri->nilai_ujian, 2, '.', '.') }}</td>
                             <td>
-                                @if ($item->status_id == 1)
+                                @if ($item->dataDiri->status_id == 1)
                                     <span class="badge badge-warning">
-                                        {{ $item->status_pendaftaran->status }}
+                                        {{ $item->dataDiri->status_pendaftaran->status }}
                                     </span>
-                                @elseif ($item->status_id == 2)
+                                @elseif ($item->dataDiri->status_id == 2)
                                     <span class="badge badge-success">
-                                        {{ $item->status_pendaftaran->status }}
+                                        {{ $item->dataDiri->status_pendaftaran->status }}
                                     </span>
-                                @elseif ($item->status_id == 3)
+                                @elseif ($item->dataDiri->status_id == 3)
                                     <span class="badge badge-danger">
-                                        {{ $item->status_pendaftaran->status }}
+                                        {{ $item->dataDiri->status_pendaftaran->status }}
                                     </span>
                                 @endif
                             </td>

@@ -65,6 +65,17 @@ class UjianController extends Controller
             $storeJawaban = JawabanSoal::create($data);
         }
 
+        $id =  auth()->user()->id;
+        
+        //Hitung nilai ujian
+        $jmlSoal    = BankSoal::count();
+        $jmlBenar   = JawabanSoal::where('user_id', $id)->where('status', 'benar')->count();
+        $nilai = ($jmlBenar / $jmlSoal) * 100;
+
+
+        //Update tabel data_diri
+        $update = DataDiri::where('user_id', $id)->update(array('nilai_ujian' => $nilai));
+
         toast('Terima kasih! Jawaban Anda telah direkam.','success')->timerProgressBar();
         return view('backend.guest.ujian.confirm');
     }

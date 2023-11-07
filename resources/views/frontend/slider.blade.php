@@ -36,7 +36,7 @@
         </div> --}}
     </div>
 </div>
-<div class="service1-area">
+{{-- <div class="service1-area">
     <div class="service1-inner-area">
         <div class="container">
             <div class="row service1-wrapper">
@@ -70,4 +70,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}

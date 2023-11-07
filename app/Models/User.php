@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Roles;
+use App\Models\DataDiri;
 use App\Models\JawabanSoal;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
@@ -46,6 +47,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function dataDiri()
+    {
+        return $this->hasOne(DataDiri::class, 'user_id', 'id');
+    }
 
     /**
      * Get all of the comments for the User

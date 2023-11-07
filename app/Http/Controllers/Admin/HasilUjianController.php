@@ -20,9 +20,9 @@ class HasilUjianController extends Controller
     }
 
     public function show($id){
-        $user = User::where('id', $id)->first();
-        $jmlSoal = BankSoal::count();
-        $jmlBenar = JawabanSoal::where('user_id', $id)->where('status', 'benar')->count();
+        $user       = User::where('id', $id)->first();
+        $jmlSoal    = BankSoal::count();
+        $jmlBenar   = JawabanSoal::where('user_id', $id)->where('status', 'benar')->count();
         $nilai = ($jmlBenar / $jmlSoal) * 100;
 
         return view('backend.admin.ujian.show', compact('user', 'jmlSoal', 'jmlBenar', 'nilai'));
