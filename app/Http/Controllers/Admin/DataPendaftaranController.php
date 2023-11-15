@@ -76,6 +76,7 @@ class DataPendaftaranController extends Controller
 
     public function destroy($id)
     {
+        $deleteUser = User::where('id', $id)->delete();
         $deleteDataDiri = DataDiri::where('user_id', $id)->delete();
         $deleteDataOrangTua = DataOrangTua::where('user_id', $id)->delete();
         $deleteDataSekolahAsal = DataSekolahAsal::where('user_id', $id)->delete();
