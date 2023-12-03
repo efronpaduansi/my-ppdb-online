@@ -25,7 +25,7 @@ class CreateDataDirisTable extends Migration
             $table->string('tempat_lahir');
             $table->date('tanggal_lahir');
             $table->string('jenis_kelamin');
-            $table->string('agama');
+            // $table->string('agama');
             $table->string('alamat');
             $table->string('no_hp');
             $table->string('email')->unique();

@@ -75,7 +75,7 @@
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-6">
                         <label for="jenis_kelamin">Jenis Kelamin</label>
                        <select name="jenis_kelamin" id="jenis_kelamin" class="form-control @error('jenis_kelamin') is-invalid @enderror">
                             <option value="">--Select--</option>
@@ -88,7 +88,7 @@
                             </div>
                         @enderror   
                     </div>
-                    <div class="form-group col-md-4">
+                    {{-- <div class="form-group col-md-4">
                         <label for="agama">Agama</label>
                         <select name="agama" id="agama" class="form-control @error('agama') is-invalid @enderror">
                             <option value="">--Select--</option>
@@ -104,8 +104,8 @@
                                 {{ $message }}
                             </div>
                         @enderror
-                    </div>
-                    <div class="form-group col-md-4">
+                    </div> --}}
+                    <div class="form-group col-md-6">
                         <label for="jurusan">Jurusan yang dipilih</label>
                         <select name="jurusan" id="jurusan" class="form-control @error('jurusan') is-invalid @enderror">
                             <option value="">--Select--</option>

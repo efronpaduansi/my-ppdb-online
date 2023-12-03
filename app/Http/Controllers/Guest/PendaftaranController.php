@@ -18,8 +18,19 @@ class PendaftaranController extends Controller
 {
     private function _noPendaftaran()
     {
-        $kode = rand(100000, 999999);
-        return $kode;
+        $tanggal = now()->format('dmY');
+        $noPendaftaran = DataDiri::where('no_pendaftaran', 'like', $tanggal . '%')
+                        ->max('no_pendaftaran');
+        
+        // Jika tidak ada nomor pendaftaran pada tanggal ini, mulai dari 001
+        if (!$noPendaftaran) {
+            $noPendaftaranBerikutnya = $tanggal . '001';
+        } else {
+            $nomorUrut = intval(substr($noPendaftaran, -3)) + 1;
+            $noPendaftaranBerikutnya = $tanggal . str_pad($nomorUrut, 3, '0', STR_PAD_LEFT);
+        }
+    
+        return $noPendaftaranBerikutnya;
     }
 
     public function index()
@@ -46,7 +57,6 @@ class PendaftaranController extends Controller
             'tempat_lahir'      => 'required',
             'tanggal_lahir'     => 'required',
             'jenis_kelamin'     => 'required',
-            'agama'             => 'required',
             'alamat'            => 'required',
             'no_hp'             => 'required',
             'email'             => 'required|email|unique:data_diri',
@@ -64,7 +74,6 @@ class PendaftaranController extends Controller
         $data->tempat_lahir     = $request->tempat_lahir;
         $data->tanggal_lahir    = $request->tanggal_lahir;
         $data->jenis_kelamin    = $request->jenis_kelamin;
-        $data->agama            = $request->agama;
         $data->alamat           = $request->alamat;
         $data->no_hp            = $request->no_hp;
         $data->email            = $request->email;
