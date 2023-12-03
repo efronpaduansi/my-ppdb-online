@@ -21,6 +21,13 @@
                   <h2 style="color: #002147;">PPDB ONLINE</h2>
                   <h3 class="mb-5 text-center">Login</h3>
                   <hr>
+                  @if ($message = Session::get('error'))
+                    <div class="alert alert-danger" role="alert">
+                      <div class="alert-body">
+                          <strong>{{ $message }}</strong>
+                      </div>
+                    </div>
+                  @endif
                   @if ($message = Session::get('success'))
                   <div class="alert alert-success" role="alert">
                       <div class="alert-body">

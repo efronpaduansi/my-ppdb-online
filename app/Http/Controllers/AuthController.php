@@ -57,7 +57,7 @@ class AuthController extends Controller
                 return redirect()->route('guest.index');
             }
         }else{
-            return back()->withToastError('Email atau Password salah!');
+            return redirect()->route('auth.login')->with('error', 'Email atau Password salah!.');
         }
     }
     public function register()
