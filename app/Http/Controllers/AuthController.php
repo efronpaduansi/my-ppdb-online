@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Models\User;
+use Alert;
 
 /*
 * Update since 20/03/2023
@@ -35,9 +36,13 @@ class AuthController extends Controller
 
     public function doLogin(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
             'email'         => 'required|email',
             'password'      => 'required'
+        ], [
+            'email.required'=> 'Email tidak boleh kosong!',
+            'email.email' => 'Format email salah!',
+            'password.required' => 'Password tidak boleh kosong!',
         ]);
 
         $credentials = $request->only('email', 'password');
@@ -52,7 +57,7 @@ class AuthController extends Controller
                 return redirect()->route('guest.index');
             }
         }else{
-            return redirect()->back()->with('error', 'Oppss! Email atau Password salah.');
+            return back()->withToastError('Email atau Password salah!');
         }
     }
     public function register()

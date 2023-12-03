@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   </head>
   <body>
+    {{-- SWEETALERT2 --}}
+    @include('sweetalert::alert')
     <section class="hero" style="background-color: #002147;">
       <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">

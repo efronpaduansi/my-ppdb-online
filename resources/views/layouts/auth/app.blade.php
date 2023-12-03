@@ -20,6 +20,8 @@
 </head>
 
 <body class="bg-silver-300">
+    {{-- SWEETALERT2 --}}
+    @include('sweetalert::alert')
     @yield('content')
     <!-- BEGIN PAGA BACKDROPS-->
     <div class="sidenav-backdrop backdrop"></div>
