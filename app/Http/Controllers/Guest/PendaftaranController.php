@@ -110,12 +110,26 @@ class PendaftaranController extends Controller
             'penghasilan'   => 'required',
         ]);
 
+        if($request->pekerjaan_ayah == 'Lainnya'){
+            $pekerjaan_ayah = $request->pekerjaan_ayah_lainnya;
+        }else{
+            $pekerjaan_ayah = $request->pekerjaan_ayah;
+
+        }
+
+        if($request->pekerjaan_ibu == 'Lainnya'){
+            $pekerjaan_ibu = $request->pekerjaan_ibu_lainnya;
+        }else{
+            $pekerjaan_ibu = $request->pekerjaan_ibu;
+
+        }
+
         $ortu = new DataOrangTua();
         $ortu->user_id          = $request->user_id;
         $ortu->nama_ayah        = $request->nama_ayah;
         $ortu->nama_ibu         = $request->nama_ibu;
-        $ortu->pekerjaan_ayah   = $request->pekerjaan_ayah;
-        $ortu->pekerjaan_ibu    = $request->pekerjaan_ibu;
+        $ortu->pekerjaan_ayah   = $pekerjaan_ayah;
+        $ortu->pekerjaan_ibu    = $pekerjaan_ibu;
         $ortu->alamat           = $request->alamat;
         $ortu->no_hp            = $request->no_hp;
         $ortu->penghasilan      = $request->penghasilan;

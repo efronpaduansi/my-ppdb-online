@@ -48,7 +48,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="pekerjaan_ayah">Pekerjaan Ayah</label>
-                        <select name="pekerjaan_ayah" id="pekerjaan_ayah" class="form-control @error('pekerjaan_ayah') is-invalid @enderror">
+                        <select name="pekerjaan_ayah" id="pekerjaan_ayah" class="form-control @error('pekerjaan_ayah') is-invalid @enderror" onchange="showHideInput()">
                             <option value="">--Select--</option>
                             <option value="PNS">PNS</option>
                             <option value="TNI/POLRI">TNI/POLRI</option>
@@ -65,7 +65,7 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="pekerjaan_ibu">Pekerjaan Ibu</label>
-                        <select name="pekerjaan_ibu" id="pekerjaan_ibu" class="form-control @error('pekerjaan_ibu') is-invalid @enderror">
+                        <select name="pekerjaan_ibu" id="pekerjaan_ibu" class="form-control @error('pekerjaan_ibu') is-invalid @enderror" onchange="showHideInput()">
                             <option value="">--Select--</option>
                             <option value="PNS">PNS</option>
                             <option value="TNI/POLRI">TNI/POLRI</option>
@@ -80,6 +80,21 @@
                             </div>
                         @enderror
                     </div>
+                    
+                    <div class="col-md-6" id="otherInput1" class="hidden">
+                        <div class="form-group">
+                            <label for="pekerjaan_ayah_lainnya">Masukan Pekerjaan Lainnya</label>
+                            <input type="text" name="pekerjaan_ayah_lainnya" id="pekerjaan_ayah_lainnya" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6" id="otherInput2" class="hidden">
+                        <div class="form-group">
+                            <label for="pekerjaan_ibu_lainnya">Masukan Pekerjaan Lainnya</label>
+                            <input type="text" name="pekerjaan_ibu_lainnya" id="pekerjaan_ibu_lainnya" class="form-control">
+                        </div>
+                    </div>
+
                 </div>
                 <div class="form-group">
                     <label for="alamat">Alamat</label>
@@ -154,3 +169,35 @@
     </div>
  
 @endsection
+
+<script>
+    function showHideInput() {
+      var selectElement = document.getElementById('pekerjaan_ayah');
+      var selectElement2 = document.getElementById('pekerjaan_ibu');
+      var otherInput = document.getElementById('otherInput1');
+      var otherInput2 = document.getElementById('otherInput2');
+
+      var otherTextInput = document.getElementById('pekerjaan_ayah_lainnya');
+      var otherTextInput2 = document.getElementById('pekerjaan_ibu_lainnya');
+
+
+      if (selectElement.value === 'Lainnya') {
+        otherInput.classList.remove('hidden');
+        otherTextInput.required = true; // optional: make the input required
+      } else {
+        otherInput.classList.add('hidden');
+        otherTextInput.required = false; // optional: make the input not required
+      }
+
+
+
+      if (selectElement2.value === 'Lainnya') {
+        otherInput2.classList.remove('hidden');
+        otherTextInput2.required = true; // optional: make the input required
+      } else {
+        otherInput2.classList.add('hidden');
+        otherTextInput2.required = false; // optional: make the input not required
+      }
+
+    }
+  </script>
