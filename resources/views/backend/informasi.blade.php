@@ -31,7 +31,6 @@
                     <tr>
                         <th>NO</th>
                         <th>NISN</th>
-                        <th>NAMA LENGKAP</th>
                         <th>TTL</th>
                         <th>JENIS KELAMIN</th>
                         <th>STATUS</th>
@@ -42,7 +41,6 @@
                         <tr>
                             <th>{{ $loop->iteration }}</th>
                             <td>{{ $siswa->nisn }}</td>
-                            <td>{{ $siswa->nama_lengkap }}</td>
                             <td>{{ $siswa->tempat_lahir . ", " . date('d-m-Y', strtotime($siswa->tanggal_lahir)) }}</td>
                             <td>{{ $siswa->jenis_kelamin }}</td>
                             <td>LULUS</td>
