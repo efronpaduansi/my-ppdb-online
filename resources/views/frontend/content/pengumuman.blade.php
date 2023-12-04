@@ -16,7 +16,7 @@
         <div class="row">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-12">
                         <h3 class="text-center">INFORMASI PPDB ONLINE 2023</h3>
                         <h2 class="text-center">DAFTAR SISWA YANG LULUS PPDB</h2>
                         <hr>
@@ -25,7 +25,6 @@
                                 <tr>
                                     <th>NO</th>
                                     <th>NISN</th>
-                                    <th>NAMA LENGKAP</th>
                                     <th>TTL</th>
                                     <th>JENIS KELAMIN</th>
                                     <th>AGAMA</th>
@@ -37,7 +36,6 @@
                                     <tr>
                                         <th>{{ $loop->iteration }}</th>
                                         <td>{{ $siswa->nisn }}</td>
-                                        <td>{{ $siswa->nama_lengkap }}</td>
                                         <td>{{ $siswa->tempat_lahir . ', ' . date('d-m-Y', strtotime($siswa->tanggal_lahir)) }}
                                         </td>
                                         <td>{{ $siswa->jenis_kelamin }}</td>
