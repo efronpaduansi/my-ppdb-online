@@ -53,7 +53,6 @@ class DataPendaftaranController extends Controller
                 $siswa->tempat_lahir    = $pendaftaran->tempat_lahir;
                 $siswa->tanggal_lahir   = $pendaftaran->tanggal_lahir;
                 $siswa->jenis_kelamin   = $pendaftaran->jenis_kelamin;
-                $siswa->agama           = $pendaftaran->agama;
                 $siswa->no_hp           = $pendaftaran->no_hp;
                 $siswa->email           = $pendaftaran->email;
                 $siswa->save();

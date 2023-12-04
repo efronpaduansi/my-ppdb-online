@@ -21,7 +21,6 @@ class CreateSiswasTable extends Migration
             $table->string('tempat_lahir');
             $table->date('tanggal_lahir');
             $table->string('jenis_kelamin');
-            $table->string('agama');
             $table->string('no_hp');
             $table->string('email');
             $table->timestamps();
