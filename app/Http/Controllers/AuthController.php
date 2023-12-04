@@ -85,6 +85,14 @@ class AuthController extends Controller
             'email'                 => 'required|email|unique:users',
             'password'              => 'required|min:3',
             'passConf'              => 'required|same:password',
+        ], [
+            'fname.required' => 'Nama tidak boleh kosong!',
+            'email.required' => 'Email tidak boleh kosong!',
+            'email.unique' => 'Email sudah digunakan! Silahkan gunakan alamat email lain!',
+            'password.required' => 'Password tidak boleh kosong!',
+            'password.min' => 'Password minimal 3 karakter',
+            'passConf.required' => 'Konfirmasi password tidak boleh kosong!',
+            'passConf.same' => 'Konfirmasi password salah!',
         ]);
         User::create([
             'role'      => 'guest',
