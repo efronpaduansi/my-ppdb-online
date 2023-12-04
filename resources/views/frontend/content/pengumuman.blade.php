@@ -27,7 +27,6 @@
                                     <th>NISN</th>
                                     <th>TTL</th>
                                     <th>JENIS KELAMIN</th>
-                                    <th>AGAMA</th>
                                     <th>STATUS</th>
                                 </tr>
                             </thead>
@@ -39,7 +38,6 @@
                                         <td>{{ $siswa->tempat_lahir . ', ' . date('d-m-Y', strtotime($siswa->tanggal_lahir)) }}
                                         </td>
                                         <td>{{ $siswa->jenis_kelamin }}</td>
-                                        <td>{{ $siswa->agama }}</td>
                                         <td>LULUS</td>
                                     </tr>
                                 @endforeach
