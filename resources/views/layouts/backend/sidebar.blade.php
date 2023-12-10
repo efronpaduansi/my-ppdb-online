@@ -95,7 +95,10 @@
                     </a>
                 </li>
                 @php
-                    $getDataDiri = App\Models\DataDiri::where('user_id', auth()->user()->id)->first();
+                    $userId = auth()->user()->id;
+                    $getDataDiri = App\Models\DataDiri::where('user_id', $userId)
+                                ->where('status_id', '!=', 1)   
+                                ->first();
                 @endphp
                 @if ($getDataDiri)
                     <li class="{{ request()->is('guest/ujian') ? 'active' : '' }}">

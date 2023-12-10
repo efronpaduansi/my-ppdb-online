@@ -27,6 +27,10 @@ class DatabaseSeeder extends Seeder
         ]);
 
         StatusPendaftaran::create([
+            'status' => 'Diverifikasi',
+        ]);
+
+        StatusPendaftaran::create([
             'status' => 'Diterima',
         ]);
 

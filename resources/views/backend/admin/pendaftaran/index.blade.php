@@ -14,7 +14,6 @@
                 width="100%">
                 <thead>
                     <tr>
-                        <th>Aksi</th>
                         <th>No Pendaftaran</th>
                         <th>Nama Lengkap</th>
                         <th>NIK</th>
@@ -23,27 +22,12 @@
                         <th>Jenis Kelamin</th>
                         <th>Nilai Ujian</th>
                         <th>Status</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($pendaftaran as $item)
                         <tr>
-                            <td class="d-flex inline">
-                                <a href="{{ route('admin.pendaftaran.show', $item->id) }}"
-                                    class="btn btn-sm btn-primary mr-2">
-                                    <i class="fa fa-eye"></i>
-                                </a>
-                                {{-- Tombol hapus --}}
-                                <form action="{{ route('admin.pendaftaran.destroy', $item->id) }}" method="POST"
-                                    class="d-inline">
-                                    @csrf
-                                    @method('delete')
-                                    <button type="submit" class="btn btn-sm btn-danger"
-                                        onclick="return confirm('Anda yakin menghapus data ini? klik BATAL jika anda tidak yakin!')">
-                                        <i class="fa fa-trash"></i>
-                                    </button>
-                                </form>
-                            </td>
                             <td>{{ $item->dataDiri->no_pendaftaran }}</td>
                             <td>{{ $item->dataDiri->nama_lengkap }}</td>
                             <td>{{ $item->dataDiri->nik }}</td>
@@ -65,6 +49,22 @@
                                         {{ $item->dataDiri->status_pendaftaran->status }}
                                     </span>
                                 @endif
+                            </td>
+                            <td class="d-flex inline">
+                                <a href="{{ route('admin.pendaftaran.show', $item->id) }}"
+                                    class="btn btn-sm btn-primary mr-2">
+                                    <i class="fa fa-eye"></i>
+                                </a>
+                                {{-- Tombol hapus --}}
+                                <form action="{{ route('admin.pendaftaran.destroy', $item->id) }}" method="POST"
+                                    class="d-inline">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="btn btn-sm btn-danger"
+                                        onclick="return confirm('Anda yakin menghapus data ini? klik BATAL jika anda tidak yakin!')">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach
