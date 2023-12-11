@@ -25,10 +25,10 @@
                             <a href="{{ route('admin.jurusan.index') }}"
                                 class="{{ request()->is('admin/jurusan') ? 'active' : '' }}">Jurusan</a>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="{{ route('admin.periode.index') }}"
                                 class="{{ request()->is('admin/periode') || request()->is('admin/periode/create') ? 'active' : '' }}">Periode</a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </li>
                 <li

@@ -22,6 +22,13 @@ class DatabaseSeeder extends Seeder
             'role' => 'admin',
         ]);
 
+        User::create([
+            'name' => 'Kepala Sekolah',
+            'email' => 'kepsek@gmail.com',
+            'password' => bcrypt('kepsek'),
+            'role' => 'kepsek',
+        ]);
+
         StatusPendaftaran::create([
             'status' => 'Menunggu Diverifikasi',
         ]);

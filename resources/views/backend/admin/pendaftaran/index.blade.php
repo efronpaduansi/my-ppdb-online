@@ -22,7 +22,9 @@
                         <th>Jenis Kelamin</th>
                         <th>Nilai Ujian</th>
                         <th>Status</th>
-                        <th>Aksi</th>
+                        @if(Auth::user()->role == 'admin')
+                         <th>Aksi</th>
+                        @endif
                     </tr>
                 </thead>
                 <tbody>
@@ -50,6 +52,7 @@
                                     </span>
                                 @endif
                             </td>
+                            @if(Auth::user()->role == 'admin')
                             <td class="d-flex inline">
                                 <a href="{{ route('admin.pendaftaran.show', $item->id) }}"
                                     class="btn btn-sm btn-primary mr-2">
@@ -66,6 +69,7 @@
                                     </button>
                                 </form>
                             </td>
+                            @endif
                         </tr>
                     @endforeach
                 </tbody>

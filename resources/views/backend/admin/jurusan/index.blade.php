@@ -8,10 +8,13 @@
     <div class="ibox">
         <div class="ibox-head">
             <div class="ibox-title">Data Jurusan</div>
-            <div class="ibox-title ml-auto">
-                <button class="btn btn-primary rounded" data-toggle="modal" data-target="#jurusanModal"><i
-                        class="bi bi-plus-circle"></i> Tambah Jurusan</button>
-            </div>
+            @if (Auth::user()->role == 'admin')
+                <div class="ibox-title ml-auto">
+                    <button class="btn btn-primary rounded" data-toggle="modal" data-target="#jurusanModal"><i
+                            class="bi bi-plus-circle"></i> Tambah Jurusan</button>
+                </div>
+            @endif
+            
         </div>
         <div class="ibox-body">
             <table class="table table-striped table-bordered table-hover" id="example-table" cellspacing="0" width="100%">

@@ -167,12 +167,13 @@
                         <i class="fa fa-arrow-left"></i> Kembali
                     </a>
                     @if ($pendaftaran->status_id == 1)
+                        <button type="button" class="btn btn-success ml-2" data-toggle="modal" data-target="#confirmModal">Konfirmasi</button>
                         {{-- Button Accepted Modal --}}
-                        <button type="button" class="btn btn-success ml-2" data-toggle="modal" data-target="#acceptedModal{{ $pendaftaran->id }}">
+                        {{-- <button type="button" class="btn btn-success ml-2" data-toggle="modal" data-target="#acceptedModal{{ $pendaftaran->id }}">
                             <i class="fa fa-check"></i> Terima
-                        </button>
+                        </button> --}}
                         {{-- Accepted Modal --}}
-                        <div class="modal fade" id="acceptedModal{{ $pendaftaran->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        {{-- <div class="modal fade" id="acceptedModal{{ $pendaftaran->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                               <div class="modal-content">
                                 <div class="modal-header bg-success text-white">
@@ -195,14 +196,14 @@
                                 </div>
                               </div>
                             </div>
-                          </div>
+                          </div> --}}
                         {{-- End Accepted Modal --}}
                         {{-- Button Rejected Modal --}}
-                        <button type="submit" class="btn btn-danger ml-2" data-toggle="modal" data-target="#rejectedModal{{ $pendaftaran->id }}">
+                        {{-- <button type="submit" class="btn btn-danger ml-2" data-toggle="modal" data-target="#rejectedModal{{ $pendaftaran->id }}">
                             <i class="fa fa-times"></i> Tolak
-                        </button>
+                        </button> --}}
                         {{-- Rejected Modal --}}
-                        <div class="modal fade" id="rejectedModal{{ $pendaftaran->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        {{-- <div class="modal fade" id="rejectedModal{{ $pendaftaran->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                               <div class="modal-content">
                                 <div class="modal-header bg-danger text-white">
@@ -226,7 +227,7 @@
                                 
                               </div>
                             </div>
-                          </div>
+                          </div> --}}
                         {{-- End Rejected Modal --}}
                        {{-- End Updates --}}
                     @endif
@@ -250,4 +251,6 @@
             </div>
         </div>
     @endif
+
+    @include('backend.admin.pendaftaran.confirm_modal')
 @endsection
