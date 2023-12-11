@@ -20,16 +20,24 @@
             <table class="table table-striped table-bordered table-hover" id="example-table" cellspacing="0" width="100%">
                 <thead>
                     <tr>
-                        <th>Aksi</th>
                         <th>Thumbnail</th>
                         <th>Kode Jurusan</th>
                         <th>Nama Jurusan</th>
                         <th>Singkatan</th>
+                        @if(Auth::user()->role == 'admin')
+                        <th>Aksi</th>
+                        @endif
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($jurusans as $jurusan)
                         <tr>
+                            <td><img src="{{ asset('uploads/img/' . $jurusan->thumbnail) }}" alt="thumbnail" height="75">
+                            </td>
+                            <td>{{ $jurusan->kode_jurusan }}</td>
+                            <td>{{ $jurusan->nama_jurusan }}</td>
+                            <td>{{ $jurusan->singkatan }}</td>
+                            @if(Auth::user()->role == 'admin')
                             <td>
                                 <a href="{{ route('admin.jurusan.edit', $jurusan->id) }}" class="btn btn-warning btn-sm"><i
                                         class="bi bi-pencil-square"></i></a>
@@ -42,11 +50,7 @@
                                             class="bi bi-trash"></i></button>
                                 </form>
                             </td>
-                            <td><img src="{{ asset('uploads/img/' . $jurusan->thumbnail) }}" alt="thumbnail" height="75">
-                            </td>
-                            <td>{{ $jurusan->kode_jurusan }}</td>
-                            <td>{{ $jurusan->nama_jurusan }}</td>
-                            <td>{{ $jurusan->singkatan }}</td>
+                            @endif
                         </tr>
                     @endforeach
                 </tbody>
