@@ -6,7 +6,7 @@ use App\Models\Siswa;
 use App\Models\Slider;
 use App\Models\Gallery;
 use App\Models\Jurusan;
-use App\Models\Periode;
+
 /*
 * Update since 20/03/2023
 * Konfigurasi menu pendaftaran ketika periode pendaftaran sudah ditutup
@@ -22,11 +22,9 @@ class PPDBController extends Controller
         $web        = Website::get()->first();
         $sliders    = Slider::where('is_active', 1)->get();
         $jurusans   = Jurusan::all();
-        //ambil data terakhir dari tabel periode
-        $periode = Periode::orderBy('id', 'desc')->first();
         $galleries = Gallery::latest()->get();
         
-        return view('welcome', compact('web', 'sliders', 'jurusans', 'periode', 'galleries'));
+        return view('welcome', compact('web', 'sliders', 'jurusans', 'galleries'));
     }
 
     // Change one frontend branch

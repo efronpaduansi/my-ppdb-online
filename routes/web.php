@@ -9,7 +9,6 @@ use App\Http\Controllers\Admin\StaffController;
 use App\Http\Controllers\Guest\UjianController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\JurusanController;
-use App\Http\Controllers\Admin\PeriodeController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\WebsiteController;
 use App\Http\Controllers\Admin\BankSoalController;
@@ -44,13 +43,6 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/edit-jurusan/{id}', [JurusanController::class, 'edit'])->name('admin.jurusan.edit');
     Route::put('/jurusan/{id}', [JurusanController::class, 'update'])->name('admin.jurusan.update');
     Route::delete('/jurusan/{id}', [JurusanController::class, 'destroy'])->name('admin.jurusan.destroy');
-
-    // Periode Routes
-    Route::get('/periode', [PeriodeController::class, 'index'])->name('admin.periode.index');
-    Route::get('/periode/create', [PeriodeController::class, 'create'])->name('admin.periode.create');
-    Route::post('/periode', [PeriodeController::class, 'store'])->name('admin.periode.store');
-    Route::put('/periode/{id}', [PeriodeController::class, 'update'])->name('admin.periode.update');
-    Route::delete('/periode/closed/{id}', [PeriodeController::class, 'closed'])->name('admin.periode.closed');
 
     // Pendaftaran Routes
     Route::get('/data-pendaftaran', [DataPendaftaranController::class, 'index'])->name('admin.pendaftaran.index');

@@ -9,29 +9,13 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\User;
 use Alert;
 
-/*
-* Update since 20/03/2023
-* Konfigurasi menu pendaftaran ketika periode pendaftaran sudah ditutup
-*/
-use App\Models\Periode;
-
 class AuthController extends Controller
 {
     public function login()
     {
-        $periode = Periode::orderBy('id', 'desc')->first();
-        if ($periode == null) {
-            return view('auth.login');
-        }else{
-            if ($periode->tanggal_selesai != null) {
-                if (date('Y-m-d') > $periode->tanggal_selesai) {
-                    if ($periode->status_periode == 'Tutup') {
-                        return view('auth.404');
-                    }
-                }
-            }
-            return view('auth.login');
-        }
+        
+        return view('auth.login');
+        
     }
 
     public function doLogin(Request $request)
@@ -62,20 +46,9 @@ class AuthController extends Controller
     }
     public function register()
     {
-        $periode = Periode::orderBy('id', 'desc')->first();
-
-        if ($periode == null) {
-            return view('auth.register');
-        }else{
-            if ($periode->tanggal_selesai != null) {
-                if (date('Y-m-d') > $periode->tanggal_selesai) {
-                    if ($periode->status_periode == 'Tutup') {
-                        return view('auth.404');
-                    }
-                }
-            }
-            return view('auth.register');
-        }
+        
+        return view('auth.register');
+        
     }
 
     public function doRegister(Request $request)
