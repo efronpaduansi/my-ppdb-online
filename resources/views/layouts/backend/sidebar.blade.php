@@ -54,10 +54,6 @@
                         <span class="nav-label">Setup</span><i class="fa fa-angle-left arrow"></i></a>
                     <ul class="nav-2-level collapse">
                         <li>
-                            <a href="{{ route('admin.staff.index') }}"
-                                class="{{ request()->is('admin/staff') ? 'active' : '' }}">Staff</a>
-                        </li>
-                        <li>
                             <a href="{{ route('informasi.index') }}"
                                 class="{{ request()->is('informasi') || request()->is('new-informasi') ? 'active' : '' }}">Informasi</a>
                         </li>

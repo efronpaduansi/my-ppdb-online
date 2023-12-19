@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Website;
 use App\Models\Siswa;
-use App\Models\Staff;
 use App\Models\DataDiri;
 class HomeController extends Controller
 {
@@ -14,10 +13,9 @@ class HomeController extends Controller
     {
         $totalPendaftaran = DataDiri::count();
         $totalSiswa = Siswa::count();
-        $totalStaff = Staff::count();
         $totalUsers = User::count();
         $web        = Website::get()->first();
-        return view('backend.admin.index', compact('totalPendaftaran', 'web', 'totalSiswa', 'totalStaff', 'totalUsers'));
+        return view('backend.admin.index', compact('totalPendaftaran', 'web', 'totalSiswa', 'totalUsers'));
     }
 
     public function guest()

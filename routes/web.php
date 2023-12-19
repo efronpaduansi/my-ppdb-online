@@ -5,7 +5,6 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PPDBController;
 use App\Http\Controllers\InformasiController;
-use App\Http\Controllers\Admin\StaffController;
 use App\Http\Controllers\Guest\UjianController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\JurusanController;
@@ -72,13 +71,6 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/data-siswa/export-pdf', [DataSiswaController::class, 'exportPDF'])->name('admin.siswa.exportPDF');
     Route::get('/show-data-siswa/{id}', [DataSiswaController::class, 'show'])->name('admin.siswa.show');
     Route::delete('data-siswa/{id}', [DataSiswaController::class, 'destroy'])->name('admin.siswa.destroy');
-
-    // Data Staff Routes
-    Route::get('/staff', [StaffController::class, 'index'])->name('admin.staff.index');
-    Route::post('/staff', [StaffController::class, 'store'])->name('admin.staff.store');
-    Route::get('/show-staff/{id}', [StaffController::class, 'show'])->name('admin.staff.show');
-    Route::put('/staff/{id}', [StaffController::class, 'update'])->name('admin.staff.update');
-    Route::delete('/staff/{id}', [StaffController::class, 'destroy'])->name('admin.staff.destroy');
 
     // Profile Routes
     Route::get('/profile', [ProfileController::class, 'index'])->name('admin.profile.index');
