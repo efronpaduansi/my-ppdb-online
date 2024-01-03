@@ -33,7 +33,7 @@ class AuthController extends Controller
 
         if (auth()->attempt($credentials)) {
             //cek role_id
-            if (auth()->user()->role === 'admin') {
+            if (auth()->user()->role === 'admin' || auth()->user()->role === 'kepsek') {
                 return redirect()->route('admin.index');
             } elseif (auth()->user()->role === 'siswa') {
                 return redirect()->route('siswa.index');

@@ -33,7 +33,7 @@ Route::post('/register', [AuthController::class, 'doRegister'])->name('auth.dore
 Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
 // Route prefix for admin
-Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
+Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('admin.index');
 
     // Jurusan Routes

@@ -10,7 +10,7 @@
         </div>
         <ul class="side-menu metismenu">
             {{-- Menu for Admin --}}
-            @if (Auth::user()->role === 'admin')
+            @if (Auth::user()->role === 'admin' || Auth::user()->role === 'kepsek')
                 <li class="{{ request()->is('admin/home') ? 'active' : '' }}">
                     <a href="{{ route('admin.index') }}"><i class="sidebar-item-icon fa fa-th-large"></i>
                         <span class="nav-label">Dashboard</span>
