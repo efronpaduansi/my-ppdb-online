@@ -32,9 +32,9 @@
                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                 <div class="form-row">
                     <div class="form-group col-md-12">
-                        <label for="ijazah">Foto Copy Ijazah</label>
+                        <label for="ijazah">Foto Copy Ijazah (.pdf)</label>
                         <input type="file" class="form-control @error('ijazah') is-invalid @enderror" id="ijazah"
-                            name="ijazah" autofocus value="{{ old('ijazah') }}">
+                            name="ijazah" autofocus value="{{ old('ijazah') }}" accept=".pdf">
                         @error('ijazah')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -44,11 +44,11 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-12">
-                        <label for="skhun">Foto Copy SKHUN/SKL</label>
+                        <label for="skhun">Foto Copy SKHUN/SKL (.pdf)</label>
                         <input type="file" class="form-control @error('skhun') is-invalid @enderror" id="skhun"
-                            name="skhun" value="{{ old('skhun') }}">
+                            name="skhun" value="{{ old('skhun') }}" accept=".pdf">
                         @error('skhun')
-                            <div class="invalid-feedback">
+                            <div class="invalid-feedback" accept=".pdf">
                                 {{ $message }}
                             </div>
                         @enderror
@@ -56,9 +56,9 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-12">
-                        <label for="kartu_keluarga">Foto Copy Kartu Keluarga</label>
+                        <label for="kartu_keluarga">Foto Copy Kartu Keluarga (.pdf)</label>
                         <input type="file" class="form-control @error('kartu_keluarga') is-invalid @enderror"
-                            id="kartu_keluarga" name="kartu_keluarga" value="{{ old('kartu_keluarga') }}">
+                            id="kartu_keluarga" name="kartu_keluarga" value="{{ old('kartu_keluarga') }}" accept=".pdf">
                         @error('kartu_keluarga')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -68,9 +68,9 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-12">
-                        <label for="akta_lahir">Foto Copy Akta Kelahiran</label>
+                        <label for="akta_lahir">Foto Copy Akta Kelahiran (.pdf)</label>
                         <input type="file" class="form-control @error('akta_lahir') is-invalid @enderror" id="akta_lahir"
-                            name="akta_lahir" value="{{ old('akta_lahir') }}">
+                            name="akta_lahir" value="{{ old('akta_lahir') }}" accept=".pdf">
                         @error('akta_lahir')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -80,9 +80,9 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-12">
-                        <label for="foto">Foto Pas</label>
+                        <label for="foto">Foto Pas (.png, .jpeg, .jpg)</label>
                         <input type="file" class="form-control @error('foto') is-invalid @enderror" id="foto"
-                            name="foto" value="{{ old('foto') }}">
+                            name="foto" value="{{ old('foto') }}" accept=".png, .jpeg, .jpg">
                         @error('foto')
                             <div class="invalid-feedback">
                                 {{ $message }}
