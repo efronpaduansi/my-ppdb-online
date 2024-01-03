@@ -13,9 +13,9 @@
             <button class="nav-link" id="nav-sliders-tab" data-toggle="tab" data-target="#nav-sliders" type="button"
                 role="tab" aria-controls="nav-profile" aria-selected="false"><i class="bi bi-sliders"></i>
                 Sliders</button>
-            <button class="nav-link" id="nav-contact-tab" data-toggle="tab" data-target="#nav-contact" type="button"
+            {{-- <button class="nav-link" id="nav-contact-tab" data-toggle="tab" data-target="#nav-contact" type="button"
                 role="tab" aria-controls="nav-contact" aria-selected="false"><i class="bi bi-telephone-fill"></i>
-                Contact</button>
+                Contact</button> --}}
             <button class="nav-link" id="nav-gallery-tab" data-toggle="tab" data-target="#nav-gallery" type="button"
                 role="tab" aria-controls="nav-gallery" aria-selected="false"><i class="bi bi-images"></i>
                 Gallery</button>
