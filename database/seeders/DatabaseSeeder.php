@@ -38,6 +38,10 @@ class DatabaseSeeder extends Seeder
         ]);
 
         StatusPendaftaran::create([
+            'status' => 'Terverifikasi',
+        ]);
+
+        StatusPendaftaran::create([
             'status' => 'Diterima',
         ]);
 

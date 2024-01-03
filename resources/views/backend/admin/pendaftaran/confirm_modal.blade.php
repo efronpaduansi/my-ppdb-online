@@ -8,7 +8,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="{{ route('admin.pendaftaran.accepted', $pendaftaran->id) }}" method="post">
+          <form action="{{ route('admin.pendaftaran.terverifikasi', $pendaftaran->id) }}" method="post">
             @csrf
             @method('PUT')
             <p>Update data pendaftaran dengan mengklik salah satu tombol dibawah ini.</p>

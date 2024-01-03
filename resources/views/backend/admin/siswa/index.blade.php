@@ -28,7 +28,10 @@
                         <th>Jenis Kelamin</th>
                         <th>No. Hp</th>
                         <th>Email</th>
-                        <th>Aksi</th>
+                        @if (Auth::user()->role == 'admin')
+                            <th>Aksi</th>
+                        @endif
+                      
                     </tr>
                 </thead>
                 <tbody>
@@ -40,18 +43,20 @@
                             <td>{{ $item->jenis_kelamin }}</td>
                             <td>{{ $item->no_hp }}</td>
                             <td>{{ $item->email }}</td>
-                            <td>
-                                <a href="{{ route('admin.siswa.show', $item->id) }}" class="btn btn-primary btn-sm"><i
-                                        class="fa fa-eye"></i></a>
-                                <form action="{{ route('admin.siswa.destroy', $item->id) }}" method="POST"
-                                    class="d-inline">
-                                    @csrf
-                                    @method('delete')
-                                    <button type="submit" class="btn btn-danger btn-sm"
-                                        onclick="return confirm('Yakin ingin menghapus data ini?')"><i
-                                            class="fa fa-trash"></i></button>
-                                </form>
-                            </td>
+                            @if (Auth::user()->role == 'admin')
+                                <td>
+                                    <a href="{{ route('admin.siswa.show', $item->id) }}" class="btn btn-primary btn-sm"><i
+                                            class="fa fa-eye"></i></a>
+                                    <form action="{{ route('admin.siswa.destroy', $item->id) }}" method="POST"
+                                        class="d-inline">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn btn-danger btn-sm"
+                                            onclick="return confirm('Yakin ingin menghapus data ini?')"><i
+                                                class="fa fa-trash"></i></button>
+                                    </form>
+                                </td>
+                            @endif
                         </tr>
                     @endforeach
                 </tbody>

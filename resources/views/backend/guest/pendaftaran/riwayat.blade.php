@@ -166,10 +166,14 @@
                                     {{ $pendaftaran->status_pendaftaran->status }}
                                 </span>
                             @elseif ($pendaftaran->status_id == 3)
-                                <span class="badge badge-success">
+                                <span class="badge badge-info">
                                     {{ $pendaftaran->status_pendaftaran->status }}
                                 </span>
                             @elseif ($pendaftaran->status_id == 4)
+                                <span class="badge badge-success">
+                                    {{ $pendaftaran->status_pendaftaran->status }}
+                                </span>
+                            @elseif ($pendaftaran->status_id == 5)
                                 <span class="badge badge-danger">
                                     {{ $pendaftaran->status_pendaftaran->status }}
                                 </span>

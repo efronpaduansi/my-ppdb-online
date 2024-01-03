@@ -47,10 +47,14 @@
                                         {{ $item->dataDiri->status_pendaftaran->status }}
                                     </span>
                                 @elseif ($item->dataDiri->status_id == 3)
-                                    <span class="badge badge-success">
+                                    <span class="badge badge-info">
                                         {{ $item->dataDiri->status_pendaftaran->status }}
                                     </span>
                                 @elseif ($item->dataDiri->status_id == 4)
+                                    <span class="badge badge-success">
+                                        {{ $item->dataDiri->status_pendaftaran->status }}
+                                    </span>
+                                @elseif ($item->dataDiri->status_id == 5)
                                     <span class="badge badge-danger">
                                         {{ $item->dataDiri->status_pendaftaran->status }}
                                     </span>

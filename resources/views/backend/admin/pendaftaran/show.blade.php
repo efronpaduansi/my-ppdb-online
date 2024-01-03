@@ -148,6 +148,10 @@
                     <td>{{ $pendaftaran->catatan }}</td>
                 </tr>
                 <tr>
+                    <th>Nilai Ujian</th>
+                    <td>{{ $pendaftaran->nilai_ujian == 0 ? 'Belum Ujian' : $pendaftaran->nilai_ujian }}</td>
+                </tr>
+                <tr>
                     <th>Status Pendaftaran</th>
                     <td class="text-left">
                         @if ($pendaftaran->status_id == 1)
@@ -159,6 +163,14 @@
                                 {{ $pendaftaran->status_pendaftaran->status }}
                             </span>
                         @elseif ($pendaftaran->status_id == 3)
+                            <span class="badge badge-info">
+                                {{ $pendaftaran->status_pendaftaran->status }}
+                            </span>
+                        @elseif ($pendaftaran->status_id == 4)
+                            <span class="badge badge-success">
+                                {{ $pendaftaran->status_pendaftaran->status }}
+                            </span>
+                        @elseif ($pendaftaran->status_id == 4)
                             <span class="badge badge-danger">
                                 {{ $pendaftaran->status_pendaftaran->status }}
                             </span>
@@ -170,70 +182,15 @@
                     <a href="{{ route('admin.pendaftaran.index') }}" class="btn btn-primary">
                         <i class="fa fa-arrow-left"></i> Kembali
                     </a>
+                    @if($pendaftaran->nilai_ujian != 0)
+                    <form action="{{ route('admin.pendaftaran.accepted', $pendaftaran->id) }}" method="post">
+                        @csrf
+                        @method('PUT')
+                        <button type="submit" onclick="return confirm('Anda yakin?')" class="btn btn-success mx-1">Tandai sebagai Lulus</button>
+                    </form>
+                    @endif
                     @if ($pendaftaran->status_id == 1 || $pendaftaran->status_id == 2)
-                        <button type="button" class="btn btn-success ml-2" data-toggle="modal" data-target="#confirmModal">Konfirmasi</button>
-                        {{-- Button Accepted Modal --}}
-                        {{-- <button type="button" class="btn btn-success ml-2" data-toggle="modal" data-target="#acceptedModal{{ $pendaftaran->id }}">
-                            <i class="fa fa-check"></i> Terima
-                        </button> --}}
-                        {{-- Accepted Modal --}}
-                        {{-- <div class="modal fade" id="acceptedModal{{ $pendaftaran->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                              <div class="modal-content">
-                                <div class="modal-header bg-success text-white">
-                                  <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-check-circle-fill"></i> Konfirmasi</h5>
-                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                  </button>
-                                </div>
-                                <div class="modal-body">
-                                    <p>Apakah anda yakin menerima <span class="font-weight-bold">{{ $pendaftaran->nama_lengkap }}</span> dengan nomor pendaftaran <span class="font-weight-bold">{{ $pendaftaran->no_pendaftaran }}</span> ?</p>
-                                    <form action="{{ route('admin.pendaftaran.accepted', $pendaftaran->id) }}" method="POST">
-                                        @csrf
-                                        @method('PUT')
-                                        <input type="hidden" name="status_id" value="2">
-                                        <div class="modal-footer">
-                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                          <button type="submit" class="btn btn-success">Yakin</button>
-                                        </div>
-                                    </form>
-                                </div>
-                              </div>
-                            </div>
-                          </div> --}}
-                        {{-- End Accepted Modal --}}
-                        {{-- Button Rejected Modal --}}
-                        {{-- <button type="submit" class="btn btn-danger ml-2" data-toggle="modal" data-target="#rejectedModal{{ $pendaftaran->id }}">
-                            <i class="fa fa-times"></i> Tolak
-                        </button> --}}
-                        {{-- Rejected Modal --}}
-                        {{-- <div class="modal fade" id="rejectedModal{{ $pendaftaran->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                              <div class="modal-content">
-                                <div class="modal-header bg-danger text-white">
-                                  <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-check-circle-fill"></i> Konfirmasi</h5>
-                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                  </button>
-                                </div>
-                                <div class="modal-body">
-                                    <p>Apakah anda yakin menolak <span class="font-weight-bold">{{ $pendaftaran->nama_lengkap }}</span> dengan nomor pendaftaran <span class="font-weight-bold">{{ $pendaftaran->no_pendaftaran }}</span> ?</p>
-                                    <form action="{{ route('admin.pendaftaran.rejected', $pendaftaran->id) }}" method="POST">
-                                        @csrf
-                                        @method('PUT')
-                                        <input type="hidden" name="status_id" value="3">
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-danger">Yakin</button>
-                                        </div>
-                                    </form>
-                                </div>
-                                
-                              </div>
-                            </div>
-                          </div> --}}
-                        {{-- End Rejected Modal --}}
-                       {{-- End Updates --}}
+                        <button type="button" class="btn btn-info ml-2" data-toggle="modal" data-target="#confirmModal">Konfirmasi Berkas</button>
                     @endif
                 </div>
         </div>

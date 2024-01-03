@@ -65,6 +65,15 @@ class DataPendaftaranController extends Controller
        
     }
 
+    public function terverifikasi($id)
+    {
+        $pendaftaran = DataDiri::find($id);
+        $pendaftaran->status_id = 3;
+        $pendaftaran->catatan = '';
+        $pendaftaran->update();
+        return redirect()->route('admin.pendaftaran.index')->with('success', 'Data pendaftaran berhasil di update!');
+    }
+
     public function verifikasi($id, Request $request)
     {
         $pendaftaran = DataDiri::find($id);
