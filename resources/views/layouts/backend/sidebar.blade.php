@@ -89,7 +89,7 @@
                 @php
                     $userId = auth()->user()->id;
                     $getDataDiri = App\Models\DataDiri::where('user_id', $userId)
-                                ->where('status_id', '!=', 1)   
+                                ->where('status_id', '=', 3)   
                                 ->first();
                 @endphp
                 @if ($getDataDiri)

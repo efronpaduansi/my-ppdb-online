@@ -29,14 +29,14 @@ class DataPendaftaranController extends Controller
         $pendaftaran    = DataDiri::where('user_id', $user_id)->first();
         $dataOrangTua   = DataOrangTua::where('user_id', $user_id)->first();
         $dataSekolah    = DataSekolahAsal::where('user_id', $user_id)->first();
-        $berkas         = Berkas::where('user_id', $user_id)->first();
+        $berkas         = Berkas::where('user_id', $user_id)->orderby('id', 'desc')->first();
         return view('backend.admin.pendaftaran.show', compact('pendaftaran', 'dataOrangTua', 'dataSekolah', 'berkas', 'web'));
     }
 
     public function doaccepted($id)
     {
         $pendaftaran = DataDiri::find($id);
-        $pendaftaran->status_id = 2;
+        $pendaftaran->status_id = 3;
         $updatePendaftaran = $pendaftaran->update();
 
         if($updatePendaftaran){
@@ -65,12 +65,21 @@ class DataPendaftaranController extends Controller
        
     }
 
+    public function verifikasi($id, Request $request)
+    {
+        $pendaftaran = DataDiri::find($id);
+        $pendaftaran->status_id = 2;
+        $pendaftaran->catatan = $request->catatan;
+        $pendaftaran->update();
+        return redirect()->route('admin.pendaftaran.index')->with('success', 'Data pendaftaran berhasil di update!');
+    }
+
     public function dorejected($id)
     {
         $pendaftaran = DataDiri::find($id);
-        $pendaftaran->status_id = 3;
+        $pendaftaran->status_id = 4;
         $pendaftaran->update();
-        return redirect()->route('admin.pendaftaran.index')->with('error', 'Data pendaftaran berhasil di update!');
+        return redirect()->route('admin.pendaftaran.index')->with('success', 'Data pendaftaran berhasil di update!');
     }
 
     public function destroy($id)

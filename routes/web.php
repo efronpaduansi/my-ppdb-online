@@ -47,6 +47,7 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('/data-pendaftaran', [DataPendaftaranController::class, 'index'])->name('admin.pendaftaran.index');
     Route::get('/detail-pendaftaran/{user_id}', [DataPendaftaranController::class, 'show'])->name('admin.pendaftaran.show');
     Route::put('/reject-data-pendaftaran/{id}', [DataPendaftaranController::class, 'dorejected'])->name('admin.pendaftaran.rejected');
+    Route::put('/reject-data-pendaftaran/{id}', [DataPendaftaranController::class, 'verifikasi'])->name('admin.pendaftaran.verifikasi');
     Route::put('/accept-data-pendaftaran/{id}', [DataPendaftaranController::class, 'doaccepted'])->name('admin.pendaftaran.accepted');
     Route::delete('/data-pendaftaran/{id}', [DataPendaftaranController::class, 'destroy'])->name('admin.pendaftaran.destroy');
 

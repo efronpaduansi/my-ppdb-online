@@ -36,9 +36,14 @@ class PendaftaranController extends Controller
     public function index()
     {
         // cek apakah user id yang sedang login sudah ada di table data_diri
-        $cek = DataDiri::where('user_id', Auth::user()->id)->first();
-        if($cek){
-            return redirect()->route('guest.pendaftaran.riwayat');
+        $datadiri = DataDiri::where('user_id', Auth::user()->id)->first();
+        if($datadiri){
+            if($datadiri->status_id == 2){
+                return redirect()->route('guest.pendaftaran.berkas');
+            }else{
+                return redirect()->route('guest.pendaftaran.riwayat');
+            }
+           
         }else{
             $web       = Website::get()->first();
             $jurusans = Jurusan::all();
@@ -176,6 +181,13 @@ class PendaftaranController extends Controller
     {
         $cek = Berkas::where('user_id', Auth::user()->id)->first();
         if($cek){
+            $status = DataDiri::where('user_id', $cek->user_id)
+                      ->where('status_id', 2)->first();
+            if($status){
+                $web      = Website::get()->first();
+                $catatan = $status->catatan;
+                return view('backend.guest.pendaftaran.berkas', compact('web', 'catatan'));
+            }
             return redirect()->route('guest.pendaftaran.riwayat');
         }else{
             $web      = Website::get()->first();
@@ -225,7 +237,7 @@ class PendaftaranController extends Controller
         $pendaftaran    = DataDiri::where('user_id', $user_id)->first();
         $dataOrangTua   = DataOrangTua::where('user_id', $user_id)->first();
         $dataSekolah    = DataSekolahAsal::where('user_id', $user_id)->first();
-        $berkas         = Berkas::where('user_id', $user_id)->first();
+        $berkas         = Berkas::where('user_id', $user_id)->orderby('id', 'desc')->first();
         return view('backend.guest.pendaftaran.riwayat', compact('pendaftaran', 'dataOrangTua', 'dataSekolah', 'web', 'berkas'));
     }
 

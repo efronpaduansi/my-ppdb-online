@@ -144,6 +144,10 @@
                     </td>
                 </tr>
                 <tr>
+                    <th>Catatan</th>
+                    <td>{{ $pendaftaran->catatan }}</td>
+                </tr>
+                <tr>
                     <th>Status Pendaftaran</th>
                     <td class="text-left">
                         @if ($pendaftaran->status_id == 1)
@@ -166,7 +170,7 @@
                     <a href="{{ route('admin.pendaftaran.index') }}" class="btn btn-primary">
                         <i class="fa fa-arrow-left"></i> Kembali
                     </a>
-                    @if ($pendaftaran->status_id == 1)
+                    @if ($pendaftaran->status_id == 1 || $pendaftaran->status_id == 2)
                         <button type="button" class="btn btn-success ml-2" data-toggle="modal" data-target="#confirmModal">Konfirmasi</button>
                         {{-- Button Accepted Modal --}}
                         {{-- <button type="button" class="btn btn-success ml-2" data-toggle="modal" data-target="#acceptedModal{{ $pendaftaran->id }}">

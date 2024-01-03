@@ -151,6 +151,10 @@
                         </td>
                     </tr>
                     <tr>
+                        <th>Catatan</th>
+                        <td>{{ $pendaftaran->catatan }}</td>
+                    </tr>
+                    <tr>
                         <th>Status Pendaftaran</th>
                         <td class="text-left">
                             @if ($pendaftaran->status_id == 1)
@@ -158,10 +162,14 @@
                                     {{ $pendaftaran->status_pendaftaran->status }}
                                 </span>
                             @elseif ($pendaftaran->status_id == 2)
-                                <span class="badge badge-success">
+                                <span class="badge badge-warning">
                                     {{ $pendaftaran->status_pendaftaran->status }}
                                 </span>
                             @elseif ($pendaftaran->status_id == 3)
+                                <span class="badge badge-success">
+                                    {{ $pendaftaran->status_pendaftaran->status }}
+                                </span>
+                            @elseif ($pendaftaran->status_id == 4)
                                 <span class="badge badge-danger">
                                     {{ $pendaftaran->status_pendaftaran->status }}
                                 </span>

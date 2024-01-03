@@ -20,6 +20,7 @@
         </li>
     </ul>
     <div class="card" id="card-second">
+        <div class="alert alert-warning">Upload ulang berkas Anda dan {{ $catatan }}</div>
         <div class="card-header"><i class="bi bi-file-earmark-richtext-fill"></i> BERKAS</div>
         <div class="card-body">
             <form action="{{ route('guest.pendaftaran.berkas') }}" method="POST" enctype="multipart/form-data"
