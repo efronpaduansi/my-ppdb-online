@@ -225,6 +225,9 @@ class PendaftaranController extends Controller
         $berkas->foto               = $fotoName;
         $success = $berkas->save();
         if($success){
+            $data['status_id'] = 1;
+            $updatedatadiri = DataDiri::where('user_id', $request->user_id)
+                                ->update($data);
             $web      = Website::get()->first();
              return view('backend.guest.pendaftaran.success', compact('web')); 
         }
