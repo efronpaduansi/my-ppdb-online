@@ -24,8 +24,8 @@
             </div>
         @endif
         <div class="col-md-12">
-            <h1 class="text-center">DAFTAR SISWA YANG LULUS PPDB</h1>
-            <hr>
+            <h1 class="text-center alert alert-success">SELAMAT ANDA LULUS!</h1>
+            {{-- <hr>
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -47,7 +47,7 @@
                         </tr>
                     @endforeach
                 </tbody>
-            </table>
+            </table> --}}
         </div>
     </div>
 

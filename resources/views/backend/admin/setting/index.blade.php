@@ -7,9 +7,9 @@
 @section('content')
     <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-            <button class="nav-link active" id="nav-home-tab" data-toggle="tab" data-target="#nav-home" type="button"
+            {{-- <button class="nav-link active" id="nav-home-tab" data-toggle="tab" data-target="#nav-home" type="button"
                 role="tab" aria-controls="nav-home" aria-selected="true"><i class="bi bi-buildings-fill"></i>
-                Company</button>
+                Company</button> --}}
             <button class="nav-link" id="nav-sliders-tab" data-toggle="tab" data-target="#nav-sliders" type="button"
                 role="tab" aria-controls="nav-profile" aria-selected="false"><i class="bi bi-sliders"></i>
                 Sliders</button>

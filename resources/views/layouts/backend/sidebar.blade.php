@@ -16,16 +16,10 @@
                         <span class="nav-label">Dashboard</span>
                     </a>
                 </li>
-                <li
-                    class="{{ request()->is('admin/jurusan') || request()->is('admin/edit-jurusan/') || request()->is('admin/periode') || request()->is('admin/periode/create') ? 'active' : '' }}">
-                    <a href="javascript:;"><i class="sidebar-item-icon fa fa-cogs"></i>
-                        <span class="nav-label">Master</span><i class="fa fa-angle-left arrow"></i></a>
-                    <ul class="nav-2-level collapse">
-                        <li>
-                            <a href="{{ route('admin.jurusan.index') }}"
-                                class="{{ request()->is('admin/jurusan') ? 'active' : '' }}">Jurusan</a>
-                        </li>
-                    </ul>
+                <li class="{{ request()->is('admin/jurusan') ? 'active' : '' }}">
+                    <a href="{{ route('admin.jurusan.index') }}"><i class="sidebar-item-icon fa fa-cogs"></i>
+                        <span class="nav-label">Jurusan</span>
+                    </a>
                 </li>
                 <li
                     class="{{ request()->is('admin/data-pendaftaran') || request()->is('admin/detail-pendaftaran') ? 'active' : '' }}">

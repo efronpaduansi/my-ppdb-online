@@ -57,7 +57,9 @@
                 cellspacing="0" width="100%">
                 <thead>
                     <tr>
-                        <th>Aksi</th>
+                        @if (Auth::user()->role == 'admin')
+                            <th>Aksi</th>
+                        @endif
                         <th>No. Soal</th>
                         <th>Pertanyaan</th>
                         <th>Pilihan A</th>
@@ -70,6 +72,7 @@
                 <tbody>
                     @foreach ($bankSoal as $soal)
                         <tr>
+                            @if (Auth::user()->role == 'admin')
                             <td>
                                 <a href="{{ route('admin.bank-soal.edit', $soal->id) }}" class="btn btn-warning btn-sm"><i
                                         class="bi bi-pencil-square"></i></a>
@@ -82,6 +85,7 @@
                                             class="bi bi-trash"></i></button>
                                 </form>
                             </td>
+                            @endif
                             <td>{{ $soal->number }}</td>
                             <td>{{ $soal->question }}</td>
                             <td>{{ $soal->option_a }}</td>
