@@ -2,20 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\Website;
 use App\Models\Siswa;
+use App\Models\Jurusan;
+use App\Models\Website;
+use App\Models\BankSoal;
 use App\Models\DataDiri;
+use Illuminate\Http\Request;
+
 class HomeController extends Controller
 {
     public function index()
     {
-        $totalPendaftaran = DataDiri::count();
+        $totalJurusan = Jurusan::count();
         $totalSiswa = Siswa::count();
-        $totalUsers = User::count();
+        $totalSoal = BankSoal::count();
         $web        = Website::get()->first();
-        return view('backend.admin.index', compact('totalPendaftaran', 'web', 'totalSiswa', 'totalUsers'));
+        return view('backend.admin.index', compact('totalJurusan', 'web', 'totalSiswa', 'totalSoal'));
     }
 
     public function guest()

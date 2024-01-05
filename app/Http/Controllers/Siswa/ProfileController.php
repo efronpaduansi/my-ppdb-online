@@ -44,4 +44,23 @@ class ProfileController extends Controller
             return redirect()->back();
         }
     }
+
+    public function changeProfileImage(Request $request)
+    {
+        $myProfile = Berkas::where('user_id', auth()->user()->id)->first();
+
+        $imgName = rand().'.'.$request->img->extension();
+        $request->img->move(public_path('uploads/berkas/foto'), $imgName);
+
+        $data['foto'] = $imgName;
+        $update = $myProfile->update($data);
+        
+        if(!$update){
+            toast('Foto profil gagal di ubah!','error')->timerProgressBar();
+            return redirect()->back();
+        }
+        toast('Foto profil telah di ubah!','success')->timerProgressBar();
+        return redirect()->back();
+    }
+
 }

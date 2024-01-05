@@ -14,6 +14,7 @@
                 <div class="col-md-4">
                     <img src="{{ asset('uploads/berkas/foto/' . $myProfile->foto) }}" alt="Pas Foto" class="rounded-circle"
                         width="220px" height="220px">
+                    <button type="button" class="btn btn-sm btn-primary mt-3 mx-5" data-toggle="modal" data-target="#fpModal">Ubah foto profil</button>
                 </div>
                 <div class="col-md-8">
 
@@ -81,5 +82,34 @@
             </div>
         </div>
     </div>
+
+    {{-- Foto Profile Modal --}}
+    <div class="modal fade" id="fpModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Ubah Foto Profil</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form action="{{ route('siswa.profile.change-photo') }}" method="post" enctype="multipart/form-data">
+                @csrf
+                <input type="hidden" name="id" value="{{ Auth()->user()->id }}">
+                <div class="form-group">
+                    <label for="img">Pilih Foto Profil (.png, .jpg, .jpeg)</label>
+                    <input type="file" name="img" id="img" class="form-control" accept=".png, .jpeg, .jpg" required>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                  <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      
 
 @endsection

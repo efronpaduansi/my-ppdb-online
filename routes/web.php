@@ -76,7 +76,8 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
 
     // Profile Routes
     Route::get('/profile', [ProfileController::class, 'index'])->name('admin.profile.index');
-    Route::post('profile', [ProfileController::class, 'update'])->name('admin.profile.update');
+    Route::post('/profile', [ProfileController::class, 'changeEmail'])->name('admin.profile.changeEmail');
+    Route::post('/profile/change-pass', [ProfileController::class, 'changePassword'])->name('admin.profile.changePassword');
     
     // Website Setting
     Route::get('/web-setting', [WebsiteController::class, 'index'])->name('website.setting.index');
@@ -117,6 +118,7 @@ Route::prefix('siswa')->middleware(['auth', 'role:siswa'])->group(function () {
     Route::get('/pembayaran', [PembayaranController::class, 'index'])->name('pembayaran.index');
     Route::get('/profile', [ProfileSiswaController::class, 'index'])->name('siswa.profile.index');
     Route::post('/profile/change-pass', [ProfileSiswaController::class, 'changePassword'])->name('siswa.profile.change-pass');
+    Route::post('/profile/change-photo', [ProfileSiswaController::class, 'changeProfileImage'])->name('siswa.profile.change-photo');
 });
 
 //Route for all users

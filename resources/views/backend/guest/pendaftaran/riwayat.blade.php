@@ -41,10 +41,10 @@
                         <th>Jenis Kelamin</th>
                         <td class="text-left">{{ $pendaftaran->jenis_kelamin }}</td>
                     </tr>
-                    <tr>
+                    {{-- <tr>
                         <th>Agama</th>
                         <td class="text-left">{{ $pendaftaran->agama }}</td>
-                    </tr>
+                    </tr> --}}
                     <tr>
                         <th>Alamat</th>
                         <td class="text-left">{{ $pendaftaran->alamat }}</td>

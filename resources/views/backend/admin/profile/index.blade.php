@@ -31,10 +31,10 @@
                         <a class="nav-link active" href="#tab-1" data-toggle="tab"><i class="ti-bar-chart"></i> Overview</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#tab-2" data-toggle="tab"><i class="bi bi-telephone"></i> Contact</a>
+                        <a class="nav-link" href="#tab-2" data-toggle="tab"><i class="bi bi-envelope-at"></i> Ubah Email</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#tab-3" data-toggle="tab"><i class="ti-announcement"></i> Feeds</a>
+                        <a class="nav-link" href="#tab-3" data-toggle="tab"><i class="bi bi-key"></i> Ubah Kata Sandi</a>
                     </li>
                 </ul>
                 <div class="tab-content">
@@ -59,197 +59,42 @@
                                     </form>
                                 </div>
                             </div>
-                            {{-- <div class="col-md-6">
-                                <h5 class="text-info m-b-20 m-t-10"><i class="fa fa-user-plus"></i> Latest Followers</h5>
-                                <ul class="media-list media-list-divider m-0">
-                                    <li class="media">
-                                        <a class="media-img" href="javascript:;">
-                                            <img class="img-circle" src="./assets/img/users/u1.jpg" width="40" />
-                                        </a>
-                                        <div class="media-body">
-                                            <div class="media-heading">Jeanne Gonzalez <small class="float-right text-muted">12:05</small></div>
-                                            <div class="font-13">Lorem Ipsum is simply dummy text of the printing and typesetting.</div>
-                                        </div>
-                                    </li>
-                                    <li class="media">
-                                        <a class="media-img" href="javascript:;">
-                                            <img class="img-circle" src="./assets/img/users/u2.jpg" width="40" />
-                                        </a>
-                                        <div class="media-body">
-                                            <div class="media-heading">Becky Brooks <small class="float-right text-muted">1 hrs ago</small></div>
-                                            <div class="font-13">Lorem Ipsum is simply dummy text of the printing and typesetting.</div>
-                                        </div>
-                                    </li>
-                                    <li class="media">
-                                        <a class="media-img" href="javascript:;">
-                                            <img class="img-circle" src="./assets/img/users/u3.jpg" width="40" />
-                                        </a>
-                                        <div class="media-body">
-                                            <div class="media-heading">Frank Cruz <small class="float-right text-muted">3 hrs ago</small></div>
-                                            <div class="font-13">Lorem Ipsum is simply dummy.</div>
-                                        </div>
-                                    </li>
-                                    <li class="media">
-                                        <a class="media-img" href="javascript:;">
-                                            <img class="img-circle" src="./assets/img/users/u6.jpg" width="40" />
-                                        </a>
-                                        <div class="media-body">
-                                            <div class="media-heading">Connor Perez <small class="float-right text-muted">Today</small></div>
-                                            <div class="font-13">Lorem Ipsum is simply dummy text of the printing and typesetting.</div>
-                                        </div>
-                                    </li>
-                                    <li class="media">
-                                        <a class="media-img" href="javascript:;">
-                                            <img class="img-circle" src="./assets/img/users/u5.jpg" width="40" />
-                                        </a>
-                                        <div class="media-body">
-                                            <div class="media-heading">Bob Gonzalez <small class="float-right text-muted">Today</small></div>
-                                            <div class="font-13">Lorem Ipsum is simply dummy.</div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div> --}}
                         </div>
-                        {{-- <h4 class="text-info m-b-20 m-t-20"><i class="fa fa-shopping-basket"></i> Latest Orders</h4> --}}
-                        {{-- <table class="table table-striped table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Order ID</th>
-                                    <th>Customer</th>
-                                    <th>Amount</th>
-                                    <th>Status</th>
-                                    <th width="91px">Date</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>11</td>
-                                    <td>@Jack</td>
-                                    <td>$564.00</td>
-                                    <td>
-                                        <span class="badge badge-success">Shipped</span>
-                                    </td>
-                                    <td>10/07/2017</td>
-                                </tr>
-                                <tr>
-                                    <td>12</td>
-                                    <td>@Amalia</td>
-                                    <td>$220.60</td>
-                                    <td>
-                                        <span class="badge badge-success">Shipped</span>
-                                    </td>
-                                    <td>10/07/2017</td>
-                                </tr>
-                                <tr>
-                                    <td>13</td>
-                                    <td>@Emma</td>
-                                    <td>$760.00</td>
-                                    <td>
-                                        <span class="badge badge-default">Pending</span>
-                                    </td>
-                                    <td>10/07/2017</td>
-                                </tr>
-                                <tr>
-                                    <td>14</td>
-                                    <td>@James</td>
-                                    <td>$87.60</td>
-                                    <td>
-                                        <span class="badge badge-warning">Expired</span>
-                                    </td>
-                                    <td>10/07/2017</td>
-                                </tr>
-                                <tr>
-                                    <td>15</td>
-                                    <td>@Ava</td>
-                                    <td>$430.50</td>
-                                    <td>
-                                        <span class="badge badge-default">Pending</span>
-                                    </td>
-                                    <td>10/07/2017</td>
-                                </tr>
-                                <tr>
-                                    <td>16</td>
-                                    <td>@Noah</td>
-                                    <td>$64.00</td>
-                                    <td>
-                                        <span class="badge badge-success">Shipped</span>
-                                    </td>
-                                    <td>10/07/2017</td>
-                                </tr>
-                            </tbody>
-                        </table> --}}
+                       
                     </div>
                     <div class="tab-pane fade" id="tab-2">
-                        <form action="javascript:void(0)">
-                            {{-- <div class="row">
-                                <div class="col-sm-6 form-group">
-                                    <label>First Name</label>
-                                    <input class="form-control" type="text" placeholder="First Name">
+                        <form action="{{ route('admin.profile.changeEmail') }}" method="post">
+                            @csrf
+                            <div class="row">
+                                <div class="col-sm-8 form-group">
+                                    <label>Email Aktif</label>
+                                    <input class="form-control" type="email" name="email" placeholder="Masukan Email Aktif" required>
+                                    <button type="submit" class="btn btn-primary mt-3">Simpan</button>
                                 </div>
-                                <div class="col-sm-6 form-group">
-                                    <label>Last Name</label>
-                                    <input class="form-control" type="text" placeholder="First Name">
-                                </div>
-                            </div> --}}
-                            {{-- <div class="form-group">
-                                <label>Email</label>
-                                <input class="form-control" type="text" value="{{ $siswa->email }}" readonly>
                             </div>
-                            <div class="form-group">
-                                <label>Password</label>
-                                <input class="form-control" type="text" value="{{ $siswa->no_hp }}" readonly>
-                            </div> --}}
-                            {{-- <div class="form-group">
-                                <button class="btn btn-default" type="button">Submit</button>
-                            </div> --}}
                         </form>
                     </div>
                     <div class="tab-pane fade" id="tab-3">
-                        <h5 class="text-info m-b-20 m-t-20"><i class="fa fa-bullhorn"></i> Latest Feeds</h5>
-                        <ul class="media-list media-list-divider m-0">
-                            <li class="media">
-                                <div class="media-img"><i class="ti-user font-18 text-muted"></i></div>
-                                <div class="media-body">
-                                    <div class="media-heading">New customer <small class="float-right text-muted">12:05</small></div>
-                                    <div class="font-13">Lorem Ipsum is simply dummy text.</div>
+                        <h5 class="text-info m-b-20 m-t-20">Ubah Kata Sandi</h5>
+                         <form action="{{ route('admin.profile.changePassword') }}" method="post">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ Auth::user()->id }}">
+                            <div class="row">
+                                <div class="col-md-4 form-group">
+                                    <label for="oldPass">Kata Sandi Saat ini</label>
+                                    <input type="password" name="oldPass" id="oldPass" class="form-control" required>
                                 </div>
-                            </li>
-                            <li class="media">
-                                <div class="media-img"><i class="ti-info-alt font-18 text-muted"></i></div>
-                                <div class="media-body">
-                                    <div class="media-heading text-warning">Server Warning <small class="float-right text-muted">12:05</small></div>
-                                    <div class="font-13">Lorem Ipsum is simply dummy text.</div>
+                                <div class="col-md-4 form-group">
+                                    <label for="newPass">Kata Sandi Baru</label>
+                                    <input type="password" name="newPass" id="newPass" class="form-control" required>
                                 </div>
-                            </li>
-                            <li class="media">
-                                <div class="media-img"><i class="ti-announcement font-18 text-muted"></i></div>
-                                <div class="media-body">
-                                    <div class="media-heading">7 new feedback <small class="float-right text-muted">Today</small></div>
-                                    <div class="font-13">Lorem Ipsum is simply dummy text.</div>
+                                <div class="col-md-4 form-group">
+                                    <label for="passConf">Konfirmasi Kata Sandi Baru</label>
+                                    <input type="password" name="passConf" id="passConf" class="form-control" required>
                                 </div>
-                            </li>
-                            <li class="media">
-                                <div class="media-img"><i class="ti-check font-18 text-muted"></i></div>
-                                <div class="media-body">
-                                    <div class="media-heading text-success">Issue fixed <small class="float-right text-muted">12:05</small></div>
-                                    <div class="font-13">Lorem Ipsum is simply dummy text.</div>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <div class="media-img"><i class="ti-shopping-cart font-18 text-muted"></i></div>
-                                <div class="media-body">
-                                    <div class="media-heading">7 New orders <small class="float-right text-muted">12:05</small></div>
-                                    <div class="font-13">Lorem Ipsum is simply dummy text.</div>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <div class="media-img"><i class="ti-reload font-18 text-muted"></i></div>
-                                <div class="media-body">
-                                    <div class="media-heading text-danger">Server warning <small class="float-right text-muted">12:05</small></div>
-                                    <div class="font-13">Lorem Ipsum is simply dummy text.</div>
-                                </div>
-                            </li>
-                        </ul>
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-3">Simpan</button>
+                         </form>
                     </div>
                 </div>
             </div>
