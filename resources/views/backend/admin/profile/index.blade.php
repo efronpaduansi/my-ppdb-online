@@ -30,12 +30,14 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="#tab-1" data-toggle="tab"><i class="ti-bar-chart"></i> Overview</a>
                     </li>
+                    @if(Auth::user()->role == 'admin')
                     <li class="nav-item">
                         <a class="nav-link" href="#tab-2" data-toggle="tab"><i class="bi bi-envelope-at"></i> Ubah Email</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#tab-3" data-toggle="tab"><i class="bi bi-key"></i> Ubah Kata Sandi</a>
                     </li>
+                    @endif
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane fade show active" id="tab-1">
