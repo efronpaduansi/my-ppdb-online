@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PPDBController;
 use App\Http\Controllers\InformasiController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Guest\UjianController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\JurusanController;
@@ -36,6 +37,10 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('admin.index');
 
+    Route::get('/users', [UserController::class, 'index'])->name('admin.user.index');
+    Route::post('/users/email', [UserController::class, 'changeEmail'])->name('admin.user.changeEmail');
+    Route::post('/users/password', [UserController::class, 'changePassword'])->name('admin.user.changePassword');
+  
     // Jurusan Routes
     Route::get('/jurusan', [JurusanController::class, 'index'])->name('admin.jurusan.index');
     Route::post('/jurusan', [JurusanController::class, 'store'])->name('admin.jurusan.store');

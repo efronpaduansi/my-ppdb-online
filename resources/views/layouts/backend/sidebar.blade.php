@@ -55,6 +55,12 @@
                             <a href="{{ route('admin.profile.index') }}"
                                 class="{{ request()->is('admin/profile') ? 'active' : '' }}">Profile</a>
                         </li>
+                        @if(Auth::user()->role != 'kepsek')
+                            <li>
+                                <a href="{{ route('admin.user.index') }}"
+                                    class="{{ request()->is('admin/users') ? 'active' : '' }}">User</a>
+                            </li>
+                        @endif
                         <li>
                             <a href="{{ route('website.setting.index') }}"
                                 class="{{ request()->is('admin/web-setting') ? 'active' : '' }}">Website</a>
