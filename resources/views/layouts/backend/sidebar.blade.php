@@ -43,7 +43,7 @@
                     </a>
                 </li>
                 <li
-                    class="{{ request()->is('admin/staff') || request()->is('informasi') || request()->is('new-informasi') || request()->is('admin/profile') || request()->is('admin/web-setting') ? 'active' : '' }}">
+                    class="{{ request()->is('admin/staff') || request()->is('informasi') || request()->is('new-informasi') || request()->is('admin/profile') || request()->is('admin/users') || request()->is('admin/web-setting') ? 'active' : '' }}">
                     <a href="javascript:;"><i class="sidebar-item-icon fa fa-cog"></i>
                         <span class="nav-label">Setup</span><i class="fa fa-angle-left arrow"></i></a>
                     <ul class="nav-2-level collapse">
