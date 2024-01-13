@@ -183,11 +183,16 @@
                         <i class="fa fa-arrow-left"></i> Kembali
                     </a>
                     @if($pendaftaran->nilai_ujian != 0)
-                    <form action="{{ route('admin.pendaftaran.accepted', $pendaftaran->id) }}" method="post">
-                        @csrf
-                        @method('PUT')
-                        <button type="submit" onclick="return confirm('Anda yakin?')" class="btn btn-success mx-1">Tandai sebagai Lulus</button>
-                    </form>
+                        <form action="{{ route('admin.pendaftaran.accepted', $pendaftaran->id) }}" method="post">
+                            @csrf
+                            @method('PUT')
+                            <button type="submit" onclick="return confirm('Anda yakin?')" class="btn btn-success mx-1">Tandai sebagai Lulus</button>
+                        </form>
+                        <form action="{{ route('admin.pendaftaran.dorejected', $pendaftaran->id) }}" method="post">
+                            @csrf
+                            @method('PUT')
+                            <button type="submit" onclick="return confirm('Anda yakin?')" class="btn btn-danger">Tolak peserta ini</button>
+                        </form>
                     @endif
                     @if ($pendaftaran->status_id == 1 || $pendaftaran->status_id == 2)
                         <button type="button" class="btn btn-info ml-2" data-toggle="modal" data-target="#confirmModal">Konfirmasi Berkas</button>

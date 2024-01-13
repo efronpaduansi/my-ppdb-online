@@ -16,10 +16,19 @@ class DataPendaftaranController extends Controller
     public function index()
     {
         $web            = Website::get()->first();
-        // $pendaftaran    = DataDiri::all();
-        $pendaftaran = User::with('dataDiri', 'jawaban')
-                        ->where('role', 'guest')
-                        ->get();
+        
+        //Mengambil data pendaftaran yang status_id = 1 atau 2
+        $pendaftaran = DataDiri::query()
+                        ->where(function ($query) {
+                            $query->where('status_id', 1)
+                                ->orWhere('status_id', 2)
+                                ->orWhere('status_id', 3)
+                                ->orWhere('status_id', 5);
+                        })->latest()->get();
+
+        // $pendaftaran = User::with('dataDiri', 'jawaban')
+        //                 ->where('role', 'guest')
+        //                 ->get();
         return view('backend.admin.pendaftaran.index', compact('pendaftaran', 'web'));
     }
 
@@ -36,7 +45,7 @@ class DataPendaftaranController extends Controller
     public function doaccepted($id)
     {
         $pendaftaran = DataDiri::find($id);
-        $pendaftaran->status_id = 3;
+        $pendaftaran->status_id = 4;
         $updatePendaftaran = $pendaftaran->update();
 
         if($updatePendaftaran){
@@ -86,7 +95,7 @@ class DataPendaftaranController extends Controller
     public function dorejected($id)
     {
         $pendaftaran = DataDiri::find($id);
-        $pendaftaran->status_id = 4;
+        $pendaftaran->status_id = 5;
         $pendaftaran->update();
         return redirect()->route('admin.pendaftaran.index')->with('success', 'Data pendaftaran berhasil di update!');
     }

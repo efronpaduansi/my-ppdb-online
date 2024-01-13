@@ -14,7 +14,7 @@
             <p>Update data pendaftaran dengan mengklik salah satu tombol dibawah ini.</p>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-              <button type="submit" class="btn btn-success">Terima</button>
+              <button type="submit" class="btn btn-success">Verifikasi</button>
               <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#rejectModal">Verifikasi Ulang</button>
             </div>
           </form>
