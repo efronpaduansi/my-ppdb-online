@@ -182,7 +182,7 @@
                     <a href="{{ route('admin.pendaftaran.index') }}" class="btn btn-primary">
                         <i class="fa fa-arrow-left"></i> Kembali
                     </a>
-                    @if($pendaftaran->nilai_ujian != 0)
+                    @if($pendaftaran->nilai_ujian != 0 && $pendaftaran->status_id != 5)
                         <form action="{{ route('admin.pendaftaran.accepted', $pendaftaran->id) }}" method="post">
                             @csrf
                             @method('PUT')
@@ -191,7 +191,7 @@
                         <form action="{{ route('admin.pendaftaran.dorejected', $pendaftaran->id) }}" method="post">
                             @csrf
                             @method('PUT')
-                            <button type="submit" onclick="return confirm('Anda yakin?')" class="btn btn-danger">Tolak peserta ini</button>
+                            <button type="submit" onclick="return confirm('Anda yakin?')" class="btn btn-danger mx-1">Tolak peserta ini</button>
                         </form>
                     @endif
                     @if ($pendaftaran->status_id == 1 || $pendaftaran->status_id == 2)

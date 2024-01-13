@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Alert;
 use App\Models\Siswa;
 use App\Models\Website;
+use App\Models\DataDiri;
 use App\Models\Informasi;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -14,8 +15,16 @@ class InformasiController extends Controller
     {
         $web        = Website::get()->first();
         // $informasi = Informasi::all();
+        $userInfo = DataDiri::query()->where('user_id', auth()->user()->id)->first();
+        if($userInfo->status_id == 4){
+            $info = 'Selamat Anda Lulus';
+        }elseif($userInfo->status_id == 5){
+            $info = 'Mohon maaf Anda belum beruntung. Silahkan coba lagi di periode berikutnya!';
+        }else{
+            $info = '';
+        }
         $dataSiswa = Siswa::orderBy('nama_lengkap', 'asc')->get();
-        return view('backend.informasi', compact('web', 'dataSiswa'));
+        return view('backend.informasi', compact('web', 'dataSiswa', 'info'));
     }
 
     public function create()

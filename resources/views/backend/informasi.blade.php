@@ -24,7 +24,7 @@
             </div>
         @endif
         <div class="col-md-12">
-            <h1 class="text-center alert alert-success">SELAMAT ANDA LULUS!</h1>
+            <h4 class="text-center alert {{ $info == 'Selamat Anda Lulus' ? 'alert-success' : 'alert-danger' }}">{{ $info }}</h4>
             {{-- <hr>
             <table class="table table-bordered">
                 <thead>
