@@ -15,13 +15,22 @@ class InformasiController extends Controller
     {
         $web        = Website::get()->first();
         // $informasi = Informasi::all();
-        $userInfo = DataDiri::query()->where('user_id', auth()->user()->id)->first();
-        if($userInfo->status_id == 4){
-            $info = 'Selamat Anda Lulus';
-        }elseif($userInfo->status_id == 5){
-            $info = 'Mohon maaf Anda belum beruntung. Silahkan coba lagi di periode berikutnya!';
+        if(auth()->user()->role == 'guest' || auth()->user()->role == 'siswa'){
+
+            $userInfo = DataDiri::query()->where('user_id', auth()->user()->id)->first();
+            if($userInfo){
+                if($userInfo->status_id == 4){
+                    $info = 'Selamat Anda Lulus';
+                }elseif($userInfo->status_id == 5){
+                    $info = 'Mohon maaf Anda belum beruntung. Silahkan coba lagi di periode berikutnya!';
+                }else{
+                    $info = 'Belum ada informasi';
+                }
+            }else{
+                $info = 'Belum ada informasi';
+            }
         }else{
-            $info = '';
+            $info = 'Belum ada informasi';
         }
         $dataSiswa = Siswa::orderBy('nama_lengkap', 'asc')->get();
         return view('backend.informasi', compact('web', 'dataSiswa', 'info'));
