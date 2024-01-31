@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Jurusan;
 use App\Models\BankSoal;
 use Illuminate\Http\Request;
 use App\Imports\BankSoalImport;
@@ -21,10 +22,20 @@ class BankSoalController extends Controller
         }
     }
 
-    public function index(){
-        $soalNumber = $this->soalNumber();
-        $bankSoal   = BankSoal::all();
-        return view('backend.admin.banksoal.index', compact('soalNumber', 'bankSoal'));
+    public function index(Request $request){
+
+        $jurusanId = $request->jurusan_id;
+
+        if(!empty($jurusanId)){
+            $soalNumber = $this->soalNumber();
+            $bankSoal   = BankSoal::where('jurusan_id', $jurusanId)->get();
+            return view('backend.admin.banksoal.index', compact('soalNumber', 'bankSoal', 'jurusanId'));
+        }else{
+            $cekSoal   = BankSoal::oldest()->first();
+            $jurusan = Jurusan::oldest()->get();
+            return view('backend.admin.banksoal.empty', compact('jurusan'));
+        }
+
     }
 
     //Download format excel
@@ -34,15 +45,19 @@ class BankSoalController extends Controller
     }
 
     public function store(Request $request){
-        $banksoal = new BankSoal();
-        $banksoal->number = $request->number;
-        $banksoal->question = $request->question;
-        $banksoal->option_a = $request->option_a;
-        $banksoal->option_b = $request->option_b;
-        $banksoal->option_c = $request->option_c;
-        $banksoal->option_d = $request->option_d;
-        $banksoal->answer = $request->answer;
-        if($banksoal->save()){
+        
+        $data = [
+            'number' => $request->number,
+            'question' => $request->question,
+            'option_a' => $request->option_a,
+            'option_b' => $request->option_b,
+            'option_c' => $request->option_c,
+            'option_d' => $request->option_d,
+            'answer' => $request->answer,
+            'jurusan_id' => $request->jurusan,
+        ];
+      
+        if(BankSoal::create($data)){
             toast('Berhasil menambahkan data!','success')->timerProgressBar();
             return redirect()->back();
         }else{

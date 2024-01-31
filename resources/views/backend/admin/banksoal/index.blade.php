@@ -60,7 +60,7 @@
                         @if (Auth::user()->role == 'admin')
                             <th>Aksi</th>
                         @endif
-                        <th>No. Soal</th>
+                        <th>No.</th>
                         <th>Pertanyaan</th>
                         <th>Pilihan A</th>
                         <th>Pilihan B</th>
@@ -86,7 +86,7 @@
                                 </form>
                             </td>
                             @endif
-                            <td>{{ $soal->number }}</td>
+                            <td>{{ $loop->iteration}}</td>
                             <td>{{ $soal->question }}</td>
                             <td>{{ $soal->option_a }}</td>
                             <td>{{ $soal->option_b }}</td>
@@ -114,9 +114,10 @@
                     <form action="{{ route('admin.bank-soal.store') }}" method="POST" id="myForm">
                         @csrf
                         @method('POST')
+                        <input type="hidden" name="jurusan" id="jurusan" value="{{ $jurusanId }}">
                         <div class="form-group">
-                            <label for="number">No. Soal</label>
-                            <input type="text" name="number" id="number" class="form-control"
+                            {{-- <label for="number">No. Soal</label> --}}
+                            <input type="hidden" name="number" id="number" class="form-control"
                                 value="{{ $soalNumber }}" readonly>
                         </div>
                         <div class="form-group">

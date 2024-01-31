@@ -14,21 +14,23 @@ class UjianController extends Controller
 
     public function index()
     {
-        if (session()->has('soals')) {
-            $soals = session('soals');
-        } else {
-            $soals = BankSoal::inRandomOrder()->get();
-            session(['soals' => $soals]);
-        }
-
-
         $userId = auth()->user()->id;
+        $data = DataDiri::where('user_id', $userId)->get(['jurusan_id'])->first();
+        // dd($data->jurusan_id);
+        $soals = BankSoal::where('jurusan_id', $data->jurusan_id)->get();
+        
+        // if (session()->has('soals')) {
+        //     $soals = session('soals');
+        // } else {
+        //     $soals = BankSoal::where('jurusan_id', $data->jurusan_id)->get();
+        //     session(['soals' => $soals]);
+        // }
+
         $getUserId = JawabanSoal::where('user_id', $userId)->first();
 
         if($getUserId){
             return view('backend.guest.ujian.confirm');
         }
-
         return view('backend.guest.ujian.index', compact('soals'));
     }
 

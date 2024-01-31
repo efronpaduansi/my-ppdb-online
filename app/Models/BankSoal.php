@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Jurusan;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 class BankSoal extends Model
 {
     use HasFactory;
@@ -31,6 +33,13 @@ class BankSoal extends Model
         'option_b', 
         'option_c', 
         'option_d', 
-        'answer'
+        'answer',
+        'jurusan_id'
     ];
+
+    // Relationship
+    public function jurusan(){
+        return $this->belongsTo(Jurusan::class, 'jurusan_id', 'id');
+    }
+
 }
