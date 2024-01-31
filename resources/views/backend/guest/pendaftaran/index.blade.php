@@ -28,13 +28,13 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="nik">NIK</label>
-                        <input type="number" class="form-control @error('nik') is-invalid @enderror" id="nik" name="nik" autofocus value="{{ old('nik') }}" oninput="limitNIKLength(this, 20)">
+                        <input type="number" class="form-control @error('nik') is-invalid @enderror" id="nik" name="nik" autofocus value="{{ old('nik') }}" oninput="limitNIKLength(this, 16)">
                         @error('nik')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
                         @enderror
-                        <small>Maksimal input: 20 Digit!</small>
+                        <small>Maksimal input: 16 Digit!</small>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="nisn">NISN</label>
